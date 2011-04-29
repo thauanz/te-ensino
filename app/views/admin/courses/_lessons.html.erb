@@ -1,0 +1,24 @@
+<h3>Aulas do curso
+<%= link_to "Nova Aula", new_admin_course_lesson_path(@course), :class => "button right" %>
+</h3>
+
+<% if @lessons.present? %>
+  <ul class="list">
+    <% @lessons.each do |lesson| %>
+      <%= content_tag_for :li, lesson, :class => cycle(:odd, :even) do %>
+        <%= l lesson.date_at %> - 
+        <%= lesson.theme %>
+
+        <div class="right">
+          <%= link_to admin_lesson_path(lesson) do %>
+            <%= image_tag("/images/icons/eye.png", :title => "Ver", :class => "toolTip")%>
+          <% end %>
+          <%= link_to_edit([:edit, :admin, @course, lesson]) if can? :update, Lesson %>
+          <%= link_to_destroy([:admin, @course, lesson]) if can? :destroy, Lesson %>
+        </div>
+      <% end %>
+    <% end %>
+  </ul>  
+<% else %>
+  <p>Não existe aulas registradas.</p>
+<% end %>

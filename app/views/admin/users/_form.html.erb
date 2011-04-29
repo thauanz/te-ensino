@@ -1,0 +1,25 @@
+<%= form_for([:admin, @user]) do |f| %>
+  
+  <%= error_messages_for @user %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :contact %>
+    <%= f.text_field :contact %>
+  </p>
+  <p>
+    <%= f.label :profile %>
+    <%= f.text_area :profile, :rows => 5, :cols => 70 %>
+  </p>
+
+  <p><%= f.label :email %>
+  <%= f.text_field :email %></p>
+
+<hr class="thick" />
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>

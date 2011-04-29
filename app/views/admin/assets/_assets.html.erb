@@ -1,0 +1,7 @@
+<% group_by_date(@assets).each do |container|
+    date = Date.parse((asset_group = container.last).first.created_at.to_s) %>
+  <h3><%= l(date, :format => :long ) %></h3>
+  <table class="grid">
+    <%= render :partial => "asset", :collection => asset_group %>
+  </table>
+<% end %>

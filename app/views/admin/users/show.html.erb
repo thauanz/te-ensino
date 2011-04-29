@@ -1,0 +1,13 @@
+<h2><%= @user.name %></h2>
+<p><strong><i>Email: </i></strong><%= @user.email %></p>
+
+<p><strong><i>Contato: </i></strong><%= @user.contact %></p>
+<p><strong><i>Home page: </i></strong><%= link_to @user.home_page, @user.home_page %></p>
+<p><strong><i>Perfil: </i></strong></p>
+<div class = "frame">
+<%= textilize @user.profile if !@user.profile.nil? %>
+</div>
+
+<hr class = "thick" />
+
+

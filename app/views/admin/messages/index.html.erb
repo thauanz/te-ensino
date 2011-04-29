@@ -1,0 +1,5 @@
+<h2>Respostas</h2>
+
+<%= nested_messages @messages.arrange(:order => :created_at) %>
+
+<%= render "form" %>

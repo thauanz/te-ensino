@@ -1,0 +1,17 @@
+<div id="column2">
+  <span class="title-top large">Pesquisar</span> 
+    <%= form_tag courses_path, :method => :get do %>
+      <%= text_field_tag :search, "",
+            :placeholder => "palavras-chave",
+            :type => "search",
+            :class => "search-field" %>
+    <% end %>
+
+  <!--<script type="text/javascript"> 
+    var _oj_width = 275; 
+    var _oj_theme = "light"; 
+    var _oj_limit = 5; 
+  </script> 
+<script type="text/javascript" src="http://openjobs.com.br/widget/run.js" id="openjobs-js-widget"></script> 
+-->
+</div>

@@ -1,0 +1,25 @@
+<%= content_tag_for :li, user, :class => cycle(:odd, :even) do %>
+  
+  <%= link_to admin_user_path(user) do %>
+    <%= user.name %> (<%= user.email %>)
+  <% end %>
+  
+  <% if user.last_sign_in_at.present? %>
+    <span class="hint">Último acesso <%= l user.last_sign_in_at %></span>
+  <% end %>
+  
+  <div class="right">
+    <%= link_to_destroy([:admin, user]) if can? :destroy, User %> 
+  </div>
+  
+  <div class="left">
+    <% if can? :update, User %>
+      <%= form_for([:edit, :admin, user], :remote => true) do |f| %>
+        <%= link_to admin_user_path(user), :class => "toolTip", :title => t("user.enabled.#{user.enabled? ? 'desativar' : 'ativar'}"), :method => :put do %>
+          <%= image_tag((user.enabled? ? "icons/tick.png" : "icons/cross.png")) %>&nbsp;&nbsp;
+        <% end %> 
+      <% end %>
+    <% end %>
+  </div>
+  
+<% end %>

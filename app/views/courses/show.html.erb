@@ -1,0 +1,23 @@
+<h2>
+  <%= @course.name %>
+</h2>
+<h3 class="title-top">Professor(s): </h3>
+    <% @course.users.each do |user| %>
+      <%= link_to_if user.home_page.present?, "#{user.name};", user.home_page do %>
+        <%= user.name %>;
+      <% end %>
+    <% end %>
+    <br/>
+<h3 class="title-top">Você irá aprender:</h3>
+<div class="frame"><%= textilize @course.description %></div>
+
+<h3 class="title-top">Preço</h3>
+<div id="user-bar-off">
+<p>
+  <%= link_to "#{t('number.currency.format.unit')} #{@course.price}", new_admin_matriculation_path, :class => :button_buy %>
+  <%= image_tag("pagseguro.png", :class => "middle")%>
+</p>
+</div>
+
+
+

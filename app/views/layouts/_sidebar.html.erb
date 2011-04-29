@@ -1,0 +1,27 @@
+<div id="actions">
+<div>
+  <%= form_tag admin_courses_path, :method => :get do %>
+    <span class="large title-top">Pesquisar</span> <%= text_field_tag :search, "",
+    :placeholder => "palavras-chave",
+    :size => 25,
+    :type => "search",
+    :class => "search-field" %>
+  <% end %>
+</div>
+
+<ul>
+  <% if can? :create, User %>
+    <li><%= link_to t(".teacher"), new_admin_user_path, :class => "add_icon" %></li>
+  <% end %>
+  <% if can? :create, Asset %>
+    <li><%= link_to "Enviar novo arquivo", new_admin_asset_path, :class => "add_icon" %></li>
+  <% end %>
+  <% if can? :create, Matriculation %>
+    <li><%= link_to t(".matriculation"), new_admin_matriculation_path, :class => "add_page_icon" %></li>
+  <% end %>
+  <% if can? :create, Alert %>
+    <li><%= link_to t(".alert"), new_admin_alert_path, :class => "add_icon" %></li>
+  <% end %>
+</ul>
+</div>
+

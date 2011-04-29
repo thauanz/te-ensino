@@ -1,0 +1,7 @@
+<%= link_to admin_user_path(matriculation.user) do %>
+  <%= content_tag_for :li, matriculation, :class => "highlight frame" do %>
+    <%= matriculation.user.name %> (<%= matriculation.user.email %>)
+    <div class="right"><%=t matriculation.user.role %></div>
+  <% end %>
+<% end %>
+

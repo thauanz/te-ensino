@@ -1,0 +1,323 @@
+pt-BR:
+  
+  empty: "Não temos nenhum %{collection} ainda."
+  confirm: Tem certeza?
+  edit: Editar
+  destroy: Apagar
+  cancel: Cancelar
+  new: Criar %{model}
+  error_message_header: "%{count} erro(s) encontrado(s):"
+
+  created: "%{model} criado(a) com sucesso."
+  updated: "%{model} alterado(a) com sucesso."
+  destroyed: "%{model} excluído(a) com sucesso."
+
+  next_label: "Proximo"
+  previous_label: "Anterior"
+  search: "Pesquisar"
+  
+  teacher: "Professor"
+  admin: "Administrador"
+  student: "Aluno"
+
+  cannot_course_teacher: "não pode inscrever-se neste curso"
+  cannot_teacher_matriculation: "está matrículado no curso"
+  cannot_user_teacher_course: "está ministrando curso"
+  vacancies_exhausted: "vagas esgotaram"
+  cannot_alert_date_expire: "não pode ser menor que data atual"
+  
+  user:
+    enabled:
+      desativar: "Desativar o usuário"
+      ativar: "Ativar o usuário"
+
+  course:
+    one: curso
+    other: cursos
+  alert:
+    one: aviso
+    other: avisos
+
+  layouts:
+    sidebar:
+      teacher: "Criar Professor"
+      matriculation: "Matrícular em algum curso"
+      alert: "Criar novo aviso"
+
+  unauthorized:
+    manage:
+      all: "Você não tem permissão para acessar esta página."
+      user: "Não é permitido gerenciar outras contas de usuário."
+    update:
+      project: "Not allowed to update this project."
+              
+  contacts:
+    new:
+      subjects:
+        signup: I have a question before I sign up
+        request: I want to request a feature
+        billing: I have a billing question
+        confused: I'm confused about how something works
+        broken: I think something is broken
+        other: Other  
+  
+  number:
+    format:
+      precision: 3
+      separator: ','
+      delimiter: '.'
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: '%u %n'
+        unit: 'R$'
+        separator: ','
+        delimiter: '.'
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: "."
+
+    precision:
+      format:
+        delimiter: "."
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "mil"
+          million:
+            one: milhão
+            other: milhões
+          billion:
+            one: bilhão
+            other: bilhões
+          trillion:
+            one: trilhão
+            other: trilhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d de %B"
+      long: "%d de %B de %Y"
+      month: "%B de %Y"
+
+    day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
+    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
+
+    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
+    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
+
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%A, %d de %B de %Y, %H:%M h"
+      short: "%d/%m, %H:%M h"
+      long: "%A, %d de %B de %Y, %H:%M h"
+    am: ""
+    pm: ""
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'meio minuto'
+      less_than_x_seconds:
+        one: 'menos de 1 segundo'
+        other: 'menos de %{count} segundos'
+
+      x_seconds:
+        one: '1 segundo'
+        other: '%{count} segundos'
+
+      less_than_x_minutes:
+        one: 'menos de um minuto'
+        other: 'menos de %{count} minutos'
+
+      x_minutes:
+        one: '1 minuto'
+        other: '%{count} minutos'
+
+      about_x_hours:
+        one: 'aproximadamente 1 hora'
+        other: 'aproximadamente %{count} horas'
+
+      x_days:
+        one: '1 dia'
+        other: '%{count} dias'
+
+      about_x_months:
+        one: 'aproximadamente 1 mês'
+        other: 'aproximadamente %{count} meses'
+
+      x_months:
+        one: '1 mês'
+        other: '%{count} meses'
+
+      about_x_years:
+        one: 'aproximadamente 1 ano'
+        other: 'aproximadamente %{count} anos'
+
+      over_x_years:
+        one: 'mais de 1 ano'
+        other: 'mais de %{count} anos'
+
+      almost_x_years:
+        one: 'quase 1 ano'
+        other: 'quase %{count} anos'
+
+    prompts:
+      year:   "Ano"
+      month:  "Mês"
+      day:    "Dia"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Segundos"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: " e "
+
+  helpers:
+    select:
+      prompt: "Selecione"
+
+    submit:
+      create: 'Criar %{model}'
+      update: 'Alterar %{model}'
+      submit: 'Gravar %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages:
+      inclusion: "não está incluído na lista"
+      exclusion: "não está disponível"
+      invalid: "não é válido"
+      confirmation: "não está de acordo com a confirmação"
+      accepted: "deve ser aceito"
+      empty: "não pode ficar vazio"
+      blank: "não pode ficar em branco"
+      too_long: "é muito longo (máximo: %{count} caracteres)"
+      too_short: "é muito curto (mínimo: %{count} caracteres)"
+      wrong_length: "não possui o tamanho esperado (%{count} caracteres)"
+      not_a_number: "não é um número"
+      not_an_integer: "não é um número inteiro"
+      greater_than: "deve ser maior do que %{count}"
+      greater_than_or_equal_to: "deve ser maior ou igual a %{count}"
+      equal_to: "deve ser igual a %{count}"
+      less_than: "deve ser menor do que %{count}"
+      less_than_or_equal_to: "deve ser menor ou igual a %{count}"
+      odd: "deve ser ímpar"
+      even: "deve ser par"
+
+  attributes:
+    created_at: "Criado em"
+    updated_at: "Atualizado em"
+
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      course:
+        one: Curso
+        other: Cursos
+      matriculation:
+        one: Matrícula
+        other: Matrículas
+      alert:
+        one: Aviso
+        other: Avisos
+      asset:
+        one: Arquivo
+        other: Arquivos
+      lesson:
+        one: Aula
+        other: Aulas
+      forum:
+        one: Fórum
+        other: Fórums
+      message:
+        one: Mensagem
+        other: Mensagens
+
+    attributes:
+      matriculation:
+        course_id: "Curso"
+        user_id: "Usuário"
+      user:
+        name: "Nome"
+        contact: "Telefone"
+        cellfone: "Celular"
+        profile: "Perfil"
+        email: "Email"
+        home_page: "Home page"
+        password: "Senha"
+        password_confirmation: "Confirmar senha"
+        current_password: "Senha atual"
+        remember_me: "Lembre-me"
+        last_sign_in_at: "Último acesso em"
+      course:
+        name: "Nome"
+        description: "Descrição"
+        enabled: "Ativar"
+        user: "Professor"
+        timer_course: "Horário"
+        price: "Preço(R$)"
+        workload: "Carga horária"
+        amount: "Quantidade"
+      alert:
+        title: "Assunto"
+        expire: "Data de expirar"
+        description: "Descrição"
+        course_id: "Curso"
+      asset:
+        title: "Título"
+        document_file_size: "Arquivo"
+        document_file_name: "Arquivo"
+      lesson:
+        theme: "Tema"
+        date_at: "Data"
+        description: "Descrição"
+      forum:
+        title: "Título"
+      message:
+        content: "Conteúdo"
+
+    errors:
+      messages:
+        taken: "já está em uso"
+        record_invalid: "A validação falhou: %{errors}"

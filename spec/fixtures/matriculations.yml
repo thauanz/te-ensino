@@ -1,0 +1,3 @@
+one:
+  user_id: <%= User.select(:id).last %>
+  course_id: <%= Course.select(:id).last %>

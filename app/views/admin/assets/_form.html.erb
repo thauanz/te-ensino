@@ -1,0 +1,23 @@
+<%= form_for [:admin, @asset], :html => { :multipart => true } do |f| %>
+  <%= error_messages_for @asset %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= f.file_field :document %> 
+    <% if @asset.document_file_size.present? && !@asset.errors.present? %>
+    baixar arquivo atual <%= link_to(@asset.document_file_name, @asset.document.url) %>
+    <% end %>
+  </div>
+
+  <hr class="thick" /> 
+
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+  
+  <%= link_to t('cancel'), admin_assets_path %>
+<% end %>

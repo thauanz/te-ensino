@@ -1,0 +1,36 @@
+<%= form_for([:admin, @alert]) do |f| %>
+  <%= error_messages_for @alert  %>
+  
+  <div class="field">
+    <%= f.label :course_id %>
+    <%= collection_select :alert, 
+                          :course_id, @courses, :id, 
+                          :name,
+                          {:include_blank => "Selecione"},
+                          {:id => "courses"}
+    %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :expire %>
+    <%= f.text_field :expire, :class => "datepicker", :size => 15 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 8 %>
+  </div>
+
+  <hr class = "thick" />
+
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+  
+  <%= link_to t('cancel'), admin_alerts_path %>
+<% end %>

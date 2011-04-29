@@ -1,0 +1,10 @@
+<h2><%= @course.name %></h2>
+<% if cannot? :manage, Lesson %>
+  <p><strong><i>Professor:</i></strong> <% @course.users.each do |user| %> <%= user.name %>; <% end %></p>
+  <p><strong><i>Sobre:</i></strong></p>
+  <div class="frame"><%= textilize @course.description %></div>
+<% else %>
+  <%= render :partial => "lessons" %>
+<% end %>
+
+<hr class = "thick" />

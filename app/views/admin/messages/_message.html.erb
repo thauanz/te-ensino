@@ -1,0 +1,14 @@
+<div class="message">
+  <div class="content">
+    <%= textilize link_to message.content, admin_forum_message_path(params[:forum_id], message) %>
+  </div>
+  <div class="hint">
+    Enviado por <%= message.user.name %>, <%= l message.created_at %>
+  </div>
+  <div class="actions">
+    <%= link_to "Responder", new_admin_forum_message_path(:parent_id => message) %>
+    <% if(can? :destroy, message) %>
+      | <%= link_to "Excluir", admin_forum_message_path(params[:forum_id], message) , :confirm => "Tem certeza?", :method => :delete %>
+    <% end %>
+  </div>
+</div>

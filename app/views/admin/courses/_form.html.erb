@@ -1,0 +1,53 @@
+<%= form_for([:admin, @course]) do |f| %>
+  
+  <%= error_messages_for @course %>
+  
+  <div class="actions right">
+    <%= f.submit "Salvar" %>
+  </div>
+  
+  <% if can? :manage, Course %>
+    <div class="field">
+      <%= f.label :user %>
+      <%= collection_select(:course, :user_ids, @teachers, :id, :name, {:include_blank => "Todos"}, {:multiple => "multiple"}) %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 15 %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :workload %>
+    <%= f.text_field :workload %>
+  </div>
+  
+  <% if can? :manage, Course %>  
+    <div class="field">
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </div>
+  <% end %>
+    
+    <div class="field">
+      <%= f.label :enabled %>
+      <%= f.check_box :enabled %> <i>(para desativar, desmarque a opção.)</i>
+    </div>
+  
+<hr class = "thick" />
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+  <%= link_to t('cancel'), admin_courses_path %>
+<% end %>

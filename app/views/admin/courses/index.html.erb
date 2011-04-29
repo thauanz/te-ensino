@@ -1,0 +1,31 @@
+<h2>Cursos</h2>
+
+<% if @courses.present? %>
+  <ul class="list">
+    <% @courses.each do |course| %>
+      <%= content_tag_for :li, course, :class => cycle(:odd, :even) do %>
+        <%= link_to course.name, [:admin, course] %>
+
+        <div class="right">
+          <% if(can? :update, Course) && course.matriculations.present? %>
+            <%= link_to(matriculations_admin_course_path(course), :class => "toolTip", :title => "Alunos do curso", :remote => true) do %>
+              <% image_tag("icons/group.png", :size => "20x20", :alt => "Usuários do curso") %>
+            <% end %>
+          <% end %>
+          
+          <%= link_to_edit(edit_admin_course_path(course)) if can? :update, Course %>
+          <%= link_to_destroy([:admin, course]) if can? :destroy, Course %>
+        </div>
+      <% end %>
+        <div id="m<%= dom_id course %>" class="loading box">
+          <%= render :partial => "matriculation", :collection => @matriculations %>
+        </div>
+    <% end %>
+  </ul>  
+<% else %>
+  <p>Não existe cursos cadastrados.</p>
+<% end %>
+
+<%= will_paginate @courses, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
+<hr class = "thick" />
+<%= link_to_new(Course, new_admin_course_path, :class => "right") if can? :manage, Course %>

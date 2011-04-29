@@ -1,0 +1,12 @@
+<%= form_for [:admin, :forum, @message] do |f| %>
+  <%= error_messages_for @message %>
+  
+  <%= f.hidden_field :parent_id %>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, :rows => 8 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Salvar Mensagem" %>
+  </div>
+<% end %>

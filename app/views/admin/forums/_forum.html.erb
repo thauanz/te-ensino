@@ -1,0 +1,10 @@
+<div class="message">
+  <div class="created_at"><%= forum.created_at.strftime("%B %d, %Y") %></div>
+  <div class="content">
+    <%= link_to forum.content, [:admin, forum] %>
+  </div>
+  <div class="actions">
+    <%= link_to "Reply", new_admin_forum_path(:parent_id => forum) %> |
+    <%= link_to "Destroy", [:admin, forum], :confirm => "Are you sure?", :method => :delete %>
+  </div>
+</div>

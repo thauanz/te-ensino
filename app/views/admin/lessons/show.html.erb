@@ -1,0 +1,26 @@
+<h2><%= @lesson.course.name %></h2>
+
+<p><strong><i>Tema:</i></strong> <%= @lesson.theme %></p>
+<p><strong><i>Data:</i></strong> <%= l @lesson.date_at %></p>
+<p><strong><i>Descrição:</i></strong></p>
+<div class="frame"><%= textilize @lesson.description %></div>
+<p>
+<strong><i>Arquivos anexados:</i></strong>
+<% if @lesson.assets.present? %>
+<div id="assets" class="assets-lesson">
+    <table class="grid">
+      <% @lesson.assets.each do |asset| %>
+        <%= content_tag_for :tr, asset, :class => cycle(:odd, :even) do %>
+          <td><%= truncate(asset.title.capitalize, :size => 100) %></td>
+          <td><%= link_to asset.document_file_name, asset.document.url, :target => "_blank"  %></td>
+          <td class="hint"><%= l asset.updated_at %></td>
+        <% end %>
+      <% end %>
+    </table>
+</div>
+  <% else %>
+    <p>Não existe arquivos anexados.</p>
+  <% end %>
+</p>
+<hr class = "thick" />
+

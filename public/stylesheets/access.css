@@ -1,0 +1,41 @@
+div#content-for{
+  width: 360px;
+  margin: 5% auto !important;
+}
+
+#body-header {
+  padding: 10px auto;
+  width: 360px;
+  margin: 0 70px;
+  overflow: hidden;
+  behavior: url(/javascripts/vendor/PIE.htc);
+}
+
+div#content {
+  background: #FFF;
+  width: 360px;
+  position: relative;
+  text-align: left;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+
+  -webkit-box-shadow: #A5A5A5 0 0 5px;
+  -moz-box-shadow: #A5A5A5 0 0 5px;
+  box-shadow: #A5A5A5 0 0 5px;
+
+  padding:5px 20px 20px 20px;
+  overflow: hidden;
+  
+  behavior: url(/javascripts/vendor/PIE.htc);
+}
+
+div#content #title{
+  background-color: #A5A5A5;
+  padding: 10px;
+  border: 0px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  
+}

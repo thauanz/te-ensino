@@ -1,0 +1,29 @@
+<% if user_signed_in? %>
+  <div id="main-nav">
+    <%= menu do |m| %>
+      <%= m.home "Início", admin_root_path %>
+      
+      <% if can? :manage, Course %>
+        <%= m.courses "Cursos", admin_courses_path %>
+      <% end %>
+      
+      <%= m.forums "Fórum", admin_forums_path %>
+      
+      <% if can? :read, Lesson %>
+        <%= m.lessons "Aulas", admin_lessons_path %>
+      <% end %>
+      
+      <% if can? :manage, Asset %>
+        <%= m.assets "Arquivos", admin_assets_path %>
+      <% end %>
+      
+      <% if can? :read, Alert %>
+        <%= m.alerts "Avisos", admin_alerts_path %>
+      <% end %>
+      
+      <% if can? :read, User %>
+        <%= m.users "Usuários", admin_users_path %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

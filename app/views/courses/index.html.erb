@@ -1,0 +1,12 @@
+<h2>Cursos Disponíveis</h2>
+
+<% if @courses.present? %>
+  <% @courses.each do |course|%>
+    <h3><%= link_to course.name, course_path(course), :remote => true %></h3>
+    <div id=<%= dom_id course %> class="loading frame"><%= render course %></div>
+  <% end %>
+<% else %>
+  <p>Não existe cursos disponíveis ainda.</p>
+<% end %>
+
+<%= will_paginate @courses, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>

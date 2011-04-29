@@ -1,0 +1,22 @@
+<h2>Fórum</h2>
+
+<% if @forums.present? %>
+<ul class="list">
+  <% @forums.each do |forum| %>
+    <%= content_tag_for :li, forum, :class => cycle(:odd, :even) do %>
+      <%= link_to forum.title, [:admin, forum, :messages] %>
+
+      <div class="right">      
+        <%= link_to_edit(edit_admin_forum_path(forum)) if(can? :update, forum) %>
+        <%= link_to_destroy([:admin, forum]) if(can? :destroy, forum) %>
+      </div>
+    <% end %>
+  <% end %>
+</ul>
+<% else %>
+  <p>Não existe forum registrado.</p>
+<% end %>
+
+<hr class="thick"/>
+
+<%= link_to "Criar Pergunta", new_admin_forum_path, :class => "right" %>

@@ -1,0 +1,10 @@
+<% @lessons.group_by(&:course_id).each do |container|
+    course = (lesson_group = container.last).first.course.name.to_s %>
+  <h3><%= course %></h3>
+  <table class="grid">
+    <ul class="list">
+      <%= render :partial => "lesson", :collection => lesson_group %>
+    </ul>
+  </table>
+<% end %>
+

@@ -1,0 +1,9 @@
+<strong><p>Carga horária +<%= course.workload %></p></strong>
+<p>
+<%= truncate(course.description, :length => 300 ) %>
+<%= link_to "(ver mais)", course_path(course) %></p>
+<div id="user-bar-off">
+  <center>
+  <p><%= link_to "#{t('number.currency.format.unit')} #{course.price}", new_admin_matriculation_path, :class => :button_buy %></p>
+  </center>
+</div>

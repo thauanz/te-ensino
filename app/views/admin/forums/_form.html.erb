@@ -1,0 +1,21 @@
+<%= form_for [:admin, @forum] do |f| %>
+  <%= error_messages_for @forum %>
+  
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <%= f.fields_for :messages do |builder| %>
+    <div class="field">
+      <%= builder.label :content %>
+      <%= builder.text_area :content, :rows => 8 %>
+    </div>
+  <% end %>
+  
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>
+
+<%= link_to t("cancel"), admin_forums_path %>

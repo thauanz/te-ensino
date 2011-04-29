@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %></title>
+  <%= favicon %>
+
+  <%= stylesheet_link_tag "admin", "scaffold", "common", "access" %>
+  <%= render :partial => "layouts/javascripts" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="content-for">
+    <div id="body-header">
+      <%= link_to root_path do %>
+        <div id="logo">[te]ensino</div>
+      <% end %>
+    </div>
+    <div id="content">
+      <div class="in">
+        <%= flash_messages %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  
+  <%= yield :js %>
+  <%= yield :bottom %>
+  <%= analytics "UA-XXXXX" %>
+</body>
+</html>

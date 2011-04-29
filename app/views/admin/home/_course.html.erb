@@ -1,0 +1,9 @@
+<%= content_tag_for :tr, course, :class => "header" do %>
+<td width="50%"><%= course.name.capitalize %></td>
+<td width="40%"></td>
+<td class="right">
+  <%= link_to image_tag("door_in.png", :size => "18x18"), [:admin, course], :title => "Entrar", :class => "toolTip" %>
+  <%= link_to_edit(edit_admin_course_path(course)) if can? :update, Course %>
+  <%= link_to_destroy([:admin, course]) if can? :destroy, Course %>
+</td>
+<% end %>

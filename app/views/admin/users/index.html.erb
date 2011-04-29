@@ -1,0 +1,11 @@
+<h2>Usuários</h2>
+
+  <% if @users.present? %>
+    <% @users.group_by(&:role).each do |container|
+    title = (user_group = container.last).first.student? ? "Alunos" : "Professores" %>
+      <h3><%= title %></h3>
+        <ul class="list">
+          <%= render :partial => "user", :collection => user_group %>
+        </ul>
+    <% end %>
+  <% end %>

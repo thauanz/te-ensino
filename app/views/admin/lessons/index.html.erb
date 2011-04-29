@@ -1,0 +1,9 @@
+<h2>Aulas</h2>
+
+<% if @lessons.present? %>
+  <%= render :partial => "lessons" %>
+<% else %>
+<p>Não existe aulas registradas ainda.</p>
+<% end %>
+<hr class="thick">
+

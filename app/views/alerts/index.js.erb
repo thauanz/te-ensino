@@ -1,0 +1,1 @@
+$('#alerts table.grid .alert:first').before("<%= escape_javascript(raw render(:partial => 'alert', :collection => @alerts))%>");

@@ -1,0 +1,7 @@
+<h2>Responder</h2>
+
+<%= render @message.parent if @message.parent %>
+
+<%= render "form" %>
+
+<p><%= link_to "Voltar para Mensagens", admin_forum_messages_path %></p>

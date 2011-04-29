@@ -1,0 +1,58 @@
+<%= form_for [:admin, :course, @lesson] do |f| %>
+  <%= error_messages_for @lesson %>
+  
+  <% if @courses.present? %>
+    <div class="field">
+      <%= f.label :course %>
+      <%= collection_select :lesson, 
+                          :course_id, @courses, :id, 
+                          :name,
+                          {:include_blank => "Selecione"},
+                          {:id => "courses"}
+    %>
+    </div>
+  <% end %>
+    
+  <div class="field">
+    <%= f.label :theme %>
+    <%= f.text_field :theme %>
+  </div>
+  <div class="field">
+    <%= f.label :date_at %>
+    <%= f.text_field :date_at, :class => "datepicker", :size => 15 %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 15 %>
+  </div>
+  
+  
+  <p><%= label_tag "Anexar arquivos" %></p>
+  
+  <div id="assets" class="assets-lesson">
+    <% if @assets.present? %>
+      <table class="grid">
+        <% @assets.each do |asset| %>
+          <%= content_tag_for :tr, asset, :class => cycle(:odd, :even) do %>
+            <td><%= check_box_tag "lesson[asset_ids][]", asset.id, @lesson.assets.include?(asset) %> 
+            <%= truncate(asset.title.capitalize, :size => 100) %></td>
+            <td><%= link_to asset.document_file_name, asset.document.url, :target => "_blank"  %></td>
+            <td class="hint"><%= l asset.updated_at %></td>
+          <% end %>
+        <% end %>
+      </table>
+    <% else %>
+      <p>Não existe arquivos ainda.</p> 
+    <% end %>
+  </div>
+
+
+  <hr class = "thick" />
+
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+  
+  <%= link_to t('cancel'), admin_course_path(params[:course_id]) %>
+   
+<% end %>

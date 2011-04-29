@@ -1,0 +1,5 @@
+one:
+  title: "Entrega de trabalhos"
+  description: "blablablablablabla"
+  expire: <%= Time.now + (48*60) %>
+  course_id: 1

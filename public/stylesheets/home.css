@@ -1,0 +1,6 @@
+#column1, #column2 { 
+  width: 45%;
+  float: left;
+  text-align: justify;
+  margin: 20px 20px 40px;  
+}

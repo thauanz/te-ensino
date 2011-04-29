@@ -1,0 +1,5 @@
+<h2>Mensagem</h2>
+
+<%= nested_messages @forum.subtree.arrange(:order => :created_at) %>
+
+<p><%= link_to "Back to All Messages", admin_forums_path %></p>

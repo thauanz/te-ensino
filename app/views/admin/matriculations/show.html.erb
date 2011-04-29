@@ -1,0 +1,13 @@
+<h2><%= @matriculation.course.name %></h2>
+
+  <h3>Aulas</h3>
+<% if @lessons.present? %>
+  <table class="grid">
+    <ul class="list">
+      <%= render @lessons %>
+    </ul>
+  </table>
+<% else %>  
+  <p>Não existe aulas registradas.</p>
+<% end %>
+<hr class="thick">

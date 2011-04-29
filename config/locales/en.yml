@@ -1,0 +1,10 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  
+  cannot_course_teacher: "teacher can't register for this course"
+  cannot_teacher_matriculation: "is registered in course"
+  cannot_user_teacher_course: "is teaching the course"
+  vacancies_exhausted: "vacancies exhausted"

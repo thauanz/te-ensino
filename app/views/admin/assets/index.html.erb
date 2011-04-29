@@ -1,0 +1,18 @@
+<h2>Arquivos</h2>
+
+<% if @assets.present? %>
+  <div id="assets">
+    <%= render :partial => "assets" %>
+  </div>
+
+<% else %>
+  <p>Você não tem arquivos ainda.</p>
+<% end %>
+
+<hr class="thick" />
+  <%= will_paginate @assets, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
+<div class="bar right">
+  <div class="right">
+    <%= link_to 'Enviar novo arquivo', new_admin_asset_path, :class => "right" %>
+  </div>
+</div>

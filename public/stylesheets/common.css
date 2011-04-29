@@ -1,0 +1,97 @@
+/* common reusable elements */
+.middle       { vertical-align:middle; }
+.odd          { background-color:#F1F5FA; }
+.even         { background-color:#FFF; }
+.left         { float: left; }
+.right        { float: right; }
+.clear        { clear: both; }
+.txt-center   { text-align: center !important; }
+.txt-right    { text-align: right !important; }
+.txt-left     { text-align: left !important; }
+.highlight    { background-color: #FFFFCC; }
+.bold         { font-weight: bold; }
+.small        { font-size: 10px; }
+.large        { font-size: large; }
+.hint         { font-style: italic; font-size: 10px; color: #8A8A8A; }
+.frame        { border: 1px solid #e2e2e2; padding: 5px; }
+.frame-large  { border: 1em solid #2E3D48 }
+.green        { color: green; }
+.red          { color: red; }
+.orange       { color: orange; }
+.loading      { display: none; }
+.title-top    { text-shadow: 1px 1px 1px #999; }
+
+hr.thin {
+  background-color:#DDD;
+  border:medium none;
+  height:1px;
+  margin: 20px 0 20px 0;
+}
+
+hr.thick {
+  background-color:#DDD;
+  border:medium none;
+  height:3px;
+  margin: 20px 0 20px 0;  
+}
+
+ul.squared li {
+  color: #9b9e9f;
+  list-style: none inside url(/images/bullet.png);
+}
+
+ul.squared-horizontal li {
+  color: #9b9e9f;
+  background: url(/images/bullet.png) no-repeat left center;
+  padding-left:15px;
+  margin-right:10px;
+  display: inline;
+}
+
+/* flash messages */
+.flash_message{
+  position: relative;
+}
+
+.flash_message .close{
+  font-weight:bold;
+  position: absolute;
+  right: 10px;
+  top:10px;
+  cursor: pointer;
+}
+
+#demo {
+  padding: 10px 10px 10px 40px;
+  color: #000;
+  background: #FFF url(/images/info_icon.png) no-repeat 10px 10px;
+  border: 1px solid #999999;
+}
+
+#notice {
+  padding: 10px 10px 10px 40px;
+  color: #264409;
+  background: #e6efc2 url(/images/notice_icon.png) no-repeat 10px 10px;
+  border: 1px solid #c6d880;
+}
+
+#alert {
+  padding: 10px 10px 10px 40px;
+  color: #514721;
+  background: #fff6bf url(/images/alert_icon.png) no-repeat 10px 10px;
+  border: 1px solid #ffd324;
+}
+
+#error {
+  margin: 5px 0;
+  padding: 10px 10px 10px 40px;
+  color: #8a1f11;
+  background-color: #fbe3e4;
+  background-image: url(/images/error_icon.png);
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  border: 1px solid #fbc2c4;
+}
+
+/* html5 placeholder fix for ie */
+.jquery_placeholder { color: #aaa; }

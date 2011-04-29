@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %></title>
+  <%= favicon %>
+
+  <%= render :partial => "layouts/stylesheets" %>
+  <%= render :partial => "layouts/javascripts" %>
+  
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <!--[if lte IE 7]>
+  <script defer type="text/javascript" src="js/pngfix.js"></script>
+
+  <div class="notSupportedBrowser important">
+    <p>
+      <strong>Seu navegador está desatualizado. Baixe a nova versão
+      <%= link_to image_tag("ua_ie.jpg", :class => "middle"),
+            "http://www.microsoft.com/windows/internet-explorer", :target => "_blank" %>
+      ou escolha outro suportado:</strong>
+      <%= link_to image_tag("ua_ff.jpg", :class => "middle"), "http://www.mozilla.com/", :target => "_blank" %>
+      <%= link_to image_tag("ua_sf.jpg", :class => "middle"), "http://www.apple.com/safari/", :target => "_blank" %>
+      <%= link_to image_tag("ua_ch.jpg", :class => "middle"), "http://www.google.com/chrome/", :target => "_blank" %>
+      <%= link_to image_tag("ua_op.jpg", :class => "middle"), "http://www.opera.com/", :target => "_blank" %>
+    </p>
+  </div>
+  <![endif]-->
+  <div id="header">
+    <div id="body-header">
+      <% if user_signed_in? %>
+        <%= link_to admin_root_path do %>
+          <div id="logo">[te]ensino</div>
+        <% end %>
+        Seja bem vindo <strong><%= "#{current_user.name}" %></strong>!<br />
+        <div id="user-bar" class="right">
+          <%= link_to "Sair", destroy_user_session_path %>
+        </div>
+        
+        <div id="main-nav-right" class="right">
+          <%= menu do |m| %>
+            <%= m.courses "Cursos", admin_courses_path if ((can? :read, Course) && current_user.student?) %>
+            <%= m.dashboard "Configurações", edit_user_registration_path %>
+          <% end %>
+        </div>
+        
+      <% else %>
+        <%= link_to root_path do %>
+          <div id="logo">[te]ensino</div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div id="wrapper">
+  <div id="content-wrapper">
+    <div id="content">
+      <%= render :partial => "layouts/menu" %>
+      <div class="in">
+        <%= flash_messages %>
+        <div id="body">
+        <%= yield %>
+        </div>
+      </div>
+      <%= sidebar %>
+    </div>
+  </div>
+  </div>
+  <%= yield :js %>
+  <%= yield :bottom %>
+  <%= analytics "UA-XXXXX" %>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<h2>Configurações de Conta</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="asset"><div class="preview"><%= gravatar_image_tag current_user.email %></div></div>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :contact %>
+    <%= f.text_field :contact, :placeholder => "(xx)xxxx-xxxx" %>
+  </p>
+  <p>
+    <%= f.label :cellfone %>
+    <%= f.text_field :cellfone, :placeholder => "(xx)xxxx-xxxx" %>
+  </p>
+  <p>
+    <%= f.label :profile %>
+    <%= f.text_area :profile, :rows => 5, :cols => 70 %>
+  </p>
+  <p>
+    <%= f.label :home_page %>
+    <%= f.text_field :home_page, :placeholder => "http://", :class => "title" %>
+  </p>
+  <p><%= f.label :password %>
+  <%= f.password_field :password %> <i>(deixe branco se você não quiser alterá-la)</i></p>
+
+  <p><%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %></p>
+
+  <p><%= f.label :current_password %>
+  <%= f.password_field :current_password %> <i>(confirme senha atual para fazer alterações)</i></p>
+  
+<p>Você pode criar url para acesso rápido. 
+<% if resource.authentication_token %> 
+<%= link_to "http://localhost:3000#{admin_root_path(:auth_token => resource.authentication_token)}", admin_root_path(:auth_token => resource.authentication_token)  %>
+<% end %>
+<br />
+<%= link_to "Gerar Token", admin_token_authentications_path(:user_id => resource.id), :method => :post, :confirm => "Deseja criar token?"  %><br />
+<%= link_to "Deletar Token", admin_token_authentication_path(resource), :method => :delete, :confirm => "Tem certeza?"  %></p>
+  <p><%= f.submit  %></p>
+<% end %>

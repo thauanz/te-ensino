@@ -1,0 +1,52 @@
+#prices {
+  height:300px;
+  width:740px;
+  margin:0 auto;
+}
+
+.price-box{
+  background-color: white;
+  border: 3px solid black;
+  float: left;
+  font-family: helvetica, arial, sans-serif;
+  height: 310px;
+  padding: 8px 0 0;
+  text-align: center;
+  width: 220px;
+}
+
+#prices .middle{
+  border-right:none;
+  border-left:none;
+}
+.price-box .price-header h2{
+  font-size: 34px;
+  margin: 20px 0 0 0;
+  padding: 0;
+}
+
+.price-box .price-header{
+  border-bottom:solid 2px black;
+  margin-bottom:30px;
+}
+
+.price-box .price-body p{
+  color: #555555;
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.price-box .price-body strong{
+  color: #C33700;
+}
+
+.price-box .price-signup{
+  margin-top: 30px;
+}
+
+#column1, #column2, #column3 { 
+  width: 280px;
+  float: left;
+  text-align: justify;
+  margin: 0 20px 40px;  
+}

@@ -1,0 +1,34 @@
+<h2>Início</h2>
+
+<% if @courses.present? %>
+  <table class="grid">
+      <th class="titulo" colspan="3"><h3><%= image_tag("/images/notepad.gif", :size=> "18x18")%> Cursos Ministrados</h3></th>
+      <%= render :partial => "course", :collection => @courses %>
+  </table>
+  <hr class = "thick" />
+<% end %>
+
+<% if @matriculations.present? %>
+  <table class="grid">
+    <th class="titulo" colspan="3"><h3><%= image_tag("/images/notepad.gif", :size=> "18x18")%> 
+    Inscrições <% if current_user.admin? %>Pendentes<% end %>
+    </h3></th>
+    <%= render @matriculations %>
+  </table>
+  <hr class = "thick" />
+<% end %>
+
+<% if @alerts.present? %>
+<div id="alerts">
+  <table class="grid">
+    <th class="titulo" colspan="3"><h3><%= image_tag("/images/alert_icon.png", :size=> "18x18")%> Avisos</h3></th>
+    <%= render :partial => "/alerts/alert", :collection => @alerts %>
+  </table><br/>
+  <%= link_to "Ver todos", admin_alerts_path, :class => "right" %>
+</div>
+<br/>
+<hr class="thick">
+<% end %>
+<% if !current_user.admin? %>
+<%= render :partial => "calendar" %>
+<% end %>

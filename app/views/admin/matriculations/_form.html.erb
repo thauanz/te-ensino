@@ -1,0 +1,15 @@
+<%= form_for([:admin, @matriculation]) do |f| %>
+  
+  <%= error_messages_for @matriculation %>
+  
+  <div class="field">
+    <%= f.label :course_id %>
+    <%= f.collection_select :course_id, @courses, :id, :name, :prompt => true %>
+  </div>  
+
+  <hr class = "thick" />
+  
+  <div class="actions">
+    <%= f.submit "Matrícular" %>
+  </div>
+<% end %>
