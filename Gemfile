@@ -11,7 +11,7 @@ gem 'menu_builder', '0.3.1'
 gem 'RedCloth', '4.2.7'
 gem 'cancan'
 gem 'will_paginate', '3.0.pre2'
-gem 'jquery-rails'
+#gem 'jquery-rails'
 gem 'paperclip'
 gem "ancestry"
 

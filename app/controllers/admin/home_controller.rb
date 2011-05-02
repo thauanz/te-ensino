@@ -5,6 +5,8 @@ class Admin::HomeController < Admin::AdminController
   def index
     if current_user.admin?
       @matriculations = Matriculation.where(:enabled => false)
+      @matriculations = @matriculations.where(:course_id => params[:course_id]) if !params[:course_id].nil?
+      @courses = Course.where(:enabled => true)
     else
       @courses = current_user.courses if current_user.teacher?
       

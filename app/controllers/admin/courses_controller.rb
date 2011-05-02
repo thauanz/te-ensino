@@ -37,7 +37,7 @@ class Admin::CoursesController < Admin::AdminController
   end
   
   def matriculations
-    @matriculations = Matriculation.where(:course_id => params[:id])
+    @matriculations = Matriculation.where("course_id = ? AND enabled = true", params[:id])
   end
   
 private

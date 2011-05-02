@@ -1,6 +1,6 @@
-<h2>Início</h2>
+<h2>Início <div id="wait" class="right"></div></h2>
 
-<% if @courses.present? %>
+<% if @courses.present? && current_user.teacher? %>
   <table class="grid">
       <th class="titulo" colspan="3"><h3><%= image_tag("/images/notepad.gif", :size=> "18x18")%> Cursos Ministrados</h3></th>
       <%= render :partial => "course", :collection => @courses %>
@@ -11,10 +11,18 @@
 <% if @matriculations.present? %>
   <table class="grid">
     <th class="titulo" colspan="3"><h3><%= image_tag("/images/notepad.gif", :size=> "18x18")%> 
-    Inscrições <% if current_user.admin? %>Pendentes<% end %>
+    Inscrições 
+    <% if current_user.admin? %>
+    Pendentes
+    <%= select "home", "course_id", @courses.collect { |c| [c.name, c.id]}, { :include_blank => "Todos" } %>
+    <% end %>
     </h3></th>
+  </table>
+  
+  <table class="grid" id="load">
     <%= render @matriculations %>
   </table>
+  
   <hr class = "thick" />
 <% end %>
 

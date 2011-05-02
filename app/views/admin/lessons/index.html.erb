@@ -5,5 +5,8 @@
 <% else %>
 <p>Não existe aulas registradas ainda.</p>
 <% end %>
+
+<%= will_paginate @lessons, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
+
 <hr class="thick">
 

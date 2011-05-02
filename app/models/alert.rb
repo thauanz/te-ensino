@@ -4,6 +4,7 @@ class Alert < ActiveRecord::Base
   default_scope order('created_at desc')
 
   belongs_to :course 
+  belongs_to :user
   
   validates_presence_of :title, :expire, :description
   validates_presence_of :course_id

@@ -64,3 +64,18 @@ jQuery(function($){
 		yearSuffix: ''};
 	$.datepicker.setDefaults($.datepicker.regional['pt-BR']);
 });
+
+$("#home_course_id").live("change", function(){
+  if($(this).val() > 0)
+    $.get("/app.js?course_id="+$(this).val());
+  else
+    $.get("/app.js");
+  
+  $('#loading').remove();
+  var loading = $('<img id="loading" alt="Carregando" title="Carregando" src="images/icons/ajax-loader.gif" />').appendTo('#wait');
+  
+  loading.ajaxStart(function(){ $(this).show(); });
+  loading.ajaxStop(function(){ $(this).hide(); });
+  
+  return false;
+});

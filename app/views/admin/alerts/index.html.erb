@@ -16,8 +16,8 @@
       <% end %>
     <% end %>
   </ul>
-  <hr class="thick">
   <%= will_paginate @alerts, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
+  <hr class="thick">
   <p>
 <% else %>
   Não exite nenhum aviso.

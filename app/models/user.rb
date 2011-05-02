@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   has_many :matriculations, :dependent => :destroy
   has_many :assets, :dependent => :destroy
   has_many :lessons, :dependent => :destroy
+  has_many :alerts, :dependent => :destroy
+  has_many :forums, :dependent => :destroy
+  has_many :messages, :dependent => :destroy
   
   ROLES = %w[admin teacher student]
   

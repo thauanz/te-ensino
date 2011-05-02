@@ -7,8 +7,8 @@
     <% end %>
     
       <% if can? :update, Matriculation%>
-        <%= link_to admin_matriculation_path(matriculation), :class => "toolTip", :title => ("#{matriculation.enabled? ? 'desativar' : 'ativar'}"), :method => :put do %>
-          <%= image_tag((matriculation.enabled? ? "icons/tick.png" : "icons/cross.png")) %>
+        <%= link_to admin_matriculation_path(matriculation), :class => "toolTip", :title => ("#{matriculation.enabled? ? 'Cancelar' : 'Aceitar'}"), :method => :put do %>
+          <%= image_tag((matriculation.enabled? ? "icons/cross.png" : "icons/tick.png")) %>
         <% end %> 
       <% end %> 
 
