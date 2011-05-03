@@ -1,3 +1,4 @@
+# (en)coding: utf-8.
 class Admin::LessonsController < Admin::AdminController
   
   before_filter :load_resources
@@ -23,11 +24,14 @@ class Admin::LessonsController < Admin::AdminController
   end
   
   def edit
+    @courses = current_user.courses
   end
   
   def update
     flash[:notice] = I18n.tm("updated", "lesson") if @lesson.update_attributes(params[:lesson])
-    respond_with @lesson, :location => admin_course_url(@lesson.course_id)
+    @courses = current_user.courses
+    respond_with @lesson, :location => admin_course_url(@lesson[:course_id])
+    #redirect_to admin_courses_url
   end
   
   def destroy
@@ -38,9 +42,9 @@ class Admin::LessonsController < Admin::AdminController
   
   def copy
     @lesson = Lesson.find(params[:id]).clone
-    @courses = current_user.courses
-    @lesson.save
-    respond_with @lesson, :location => admin_course_url(@lesson.course_id)
+    @lesson.theme = "Copia de #{@lesson.theme}"
+    flash[:notice] = "Aula copiada com sucesso." if @lesson.save
+    redirect_to admin_lessons_url
   end
   
 private

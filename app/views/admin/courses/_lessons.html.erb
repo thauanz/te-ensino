@@ -6,8 +6,8 @@
   <ul class="list">
     <% @lessons.each do |lesson| %>
       <%= content_tag_for :li, lesson, :class => cycle(:odd, :even) do %>
-        <%= l lesson.date_at %> - 
         <%= lesson.theme %>
+        <span class="hint">Realizará em <%= l lesson.date_at %></span>
 
         <div class="right">
           <%= link_to admin_lesson_path(lesson) do %>
@@ -18,7 +18,8 @@
         </div>
       <% end %>
     <% end %>
-  </ul>  
+  </ul>
+  <%= will_paginate @lessons, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
 <% else %>
   <p>Não existe aulas registradas.</p>
 <% end %>

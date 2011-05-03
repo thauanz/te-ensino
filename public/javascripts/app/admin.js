@@ -79,3 +79,22 @@ $("#home_course_id").live("change", function(){
   
   return false;
 });
+
+$("#user-active.tick").live("mouseenter", function(){
+  $(this).removeClass("tick").addClass("cross");
+  $(this).mouseleave(function(){
+    $(this).removeClass("cross").addClass("tick");
+  });
+  return false;
+});
+
+$("#user-active.cross").live("mouseenter", function(){
+  $(this).removeClass("cross").addClass("tick");
+  $(this).mouseleave(function(){
+    $(this).removeClass("tick").addClass("cross");
+  });
+  return false;
+});
+
+
+

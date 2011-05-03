@@ -3,7 +3,7 @@
   
   <% if @courses.present? %>
     <div class="field">
-      <%= f.label :course %>
+      <%= f.label :course_id %>
       <%= collection_select :lesson, 
                           :course_id, @courses, :id, 
                           :name,

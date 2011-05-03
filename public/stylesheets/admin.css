@@ -359,6 +359,20 @@ div#sidebar{
   background-image: url('/images/icons/layout_add.png');
 }
 
+.tick {
+  padding: 10px;
+  background-position: 1px;
+  background-repeat: no-repeat;
+  background-image: url('/images/icons/tick.png');
+}
+
+.cross {
+  padding: 10px;
+  background-position: 1px;
+  background-repeat: no-repeat;
+  background-image: url('/images/icons/cross.png');
+}
+
 .minus {
   background-image: url('imagens/icons/minus.gif');
 }

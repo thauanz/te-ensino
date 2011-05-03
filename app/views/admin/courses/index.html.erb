@@ -4,9 +4,13 @@
   <ul class="list">
     <% @courses.each do |course| %>
       <%= content_tag_for :li, course, :class => cycle(:odd, :even) do %>
-        <%= link_to course.name, [:admin, course] %>
+        <%= course.name %>
 
         <div class="right">
+          <%= link_to [:admin, course] do %>
+            <%= image_tag("/images/icons/eye.png", :title => "Detalhes", :class => "toolTip")%>
+          <% end %>
+          
           <% if(can? :update, Course) && course.matriculations.present? %>
             <%= link_to(matriculations_admin_course_path(course), :class => "toolTip", :title => "Alunos do curso", :remote => true) do %>
               <% image_tag("icons/group.png", :size => "20x20", :alt => "Usuários do curso") %>

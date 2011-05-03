@@ -5,6 +5,12 @@ describe Forum do
   
   let(:forum) {forums(:one)}
   
+  it "should reject if theme is not given" do
+    forum.title = nil
+    forum.should have(1).error_on(:title)
+    forum.errors[:title].should == ["can't be blank"]
+  end
+  
   it "should validate association user" do
     association = Forum.reflect_on_association(:user)
     association.should_not be_nil

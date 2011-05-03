@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  default_scope order('name')
   # Include default devise modules. Others available are:
   # :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -8,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :contact, :cellfone, :home_page, :profile, :role, :email, :password, :password_confirmation, :remember_me
   
   has_and_belongs_to_many :courses
-  has_many :matriculations, :dependent => :destroy
+  has_many :matriculations, :dependent => :destroy 
   has_many :assets, :dependent => :destroy
   has_many :lessons, :dependent => :destroy
   has_many :alerts, :dependent => :destroy

@@ -11,7 +11,7 @@ class Admin::CoursesController < Admin::AdminController
   end
 
   def show
-    @lessons = current_user.lessons.where(:course_id => params[:id])
+    @lessons = current_user.lessons.where(:course_id => params[:id]).paginate(:page => params[:page], :per_page => 15)
   end
 
   def new

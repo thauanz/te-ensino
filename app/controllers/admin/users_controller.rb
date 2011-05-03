@@ -1,7 +1,7 @@
 # (en)coding: utf-8.
 class Admin::UsersController < Admin::AdminController
 
-  load_and_authorize_resource
+  load_and_authorize_resource :except => :show
   
   menu_item :users
   
@@ -23,6 +23,7 @@ class Admin::UsersController < Admin::AdminController
   end
   
   def show
+    @user = User.find(params[:id])
   end
     
   def update

@@ -1,4 +1,5 @@
 class Matriculation < ActiveRecord::Base
+  default_scope order('course_id, user_id')
   belongs_to :user
   belongs_to :course
   

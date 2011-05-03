@@ -1,6 +1,6 @@
 class Lesson < ActiveRecord::Base
 
-  default_scope order("date_at")
+  default_scope order("course_id, date_at")
   
   after_find :format_date
   
@@ -8,7 +8,7 @@ class Lesson < ActiveRecord::Base
   belongs_to :course
   has_and_belongs_to_many :assets
   
-  validates_presence_of :theme, :date_at, :description
+  validates_presence_of :course_id, :theme, :date_at, :description
   #validates_uniqueness_of :date_at
   
 private  

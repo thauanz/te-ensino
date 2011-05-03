@@ -20,14 +20,15 @@ class Ability
       end
       if user.role == "teacher"
         can [:read, :update], Course, :users => {:id => user.id }
-        can [:read, :update], User, :role => "student"
+        can :read, User, :matriculations => {:course_id => user.courses}
+        can :update, User, :role => "student"
         can :matriculations, Course
         can :manage, [Asset, Alert, Lesson], :user_id => user.id
       else
           if user.role == "student"
             if user.matriculations.where(:enabled => true).present?
               can :read, Matriculation, :user_id => user.id, :enabled => true
-              can :read, [Alert, Lesson], :course => {:matriculations => {:enabled => true}}
+              can :read, [Alert, Lesson], :course => {:matriculations => {:enabled => true, :user_id => user.id}}
             end       
           can :read, Course
           can :create, Matriculation

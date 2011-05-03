@@ -1,6 +1,6 @@
 <%= content_tag_for :li, lesson, :class => cycle(:odd, :even) do %>
   <%= lesson.theme %>
-  <span class="hint">(<%= l lesson.date_at %>)</span>
+  <span class="hint"><%= "Publicado por #{lesson.user.name}. Realizará em " %><%= l lesson.date_at %></span>
 <div class="right middle">
   <%= link_to admin_lesson_path(lesson) do %>
     <%= image_tag("/images/icons/eye.png", :title => "Ver", :class => "toolTip")%>
@@ -11,6 +11,5 @@
     <% end %>
   <% end %>
   <%= link_to_edit([:edit, :admin, lesson]) if can? :update, Lesson %>
-  <%= link_to_destroy([:admin, lesson]) if can? :destroy, Lesson %>
 </div>
 <% end %>

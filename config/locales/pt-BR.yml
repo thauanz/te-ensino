@@ -309,6 +309,7 @@ pt-BR:
         document_file_size: "Arquivo"
         document_file_name: "Arquivo"
       lesson:
+        course_id: "Curso"
         theme: "Tema"
         date_at: "Data"
         description: "Descrição"

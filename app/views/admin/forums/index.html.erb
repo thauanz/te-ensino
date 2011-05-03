@@ -4,9 +4,12 @@
 <ul class="list">
   <% @forums.each do |forum| %>
     <%= content_tag_for :li, forum, :class => cycle(:odd, :even) do %>
-      <%= link_to forum.title, [:admin, forum, :messages] %>
+      <%= forum.title %>
 
-      <div class="right">      
+      <div class="right">
+        <%= link_to [:admin, forum, :messages] do %>
+          <%= image_tag("/images/icons/eye.png", :title => "Ver mensagens", :class => "toolTip")%>
+        <% end %>      
         <%= link_to_edit(edit_admin_forum_path(forum)) if(can? :update, forum) %>
         <%= link_to_destroy([:admin, forum]) if(can? :destroy, forum) %>
       </div>

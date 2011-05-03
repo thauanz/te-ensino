@@ -7,6 +7,7 @@
       <%= render @lessons %>
     </ul>
   </table>
+    <%= will_paginate @lessons, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
 <% else %>  
   <p>Não existe aulas registradas.</p>
 <% end %>

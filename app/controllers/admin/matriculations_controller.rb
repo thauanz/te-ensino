@@ -9,7 +9,7 @@ class Admin::MatriculationsController < Admin::AdminController
   end
 
   def show
-    @lessons = @matriculation.course.lessons if(current_user.student?)
+    @lessons = @matriculation.course.lessons.paginate(:page => params[:page], :per_page => 15) if(current_user.student?)
   end
 
   def new
