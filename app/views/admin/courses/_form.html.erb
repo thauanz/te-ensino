@@ -8,8 +8,8 @@
   
   <% if can? :manage, Course %>
     <div class="field">
-      <%= f.label :user %>
-      <%= collection_select(:course, :user_ids, @teachers, :id, :name, {:include_blank => "Todos"}, {:multiple => "multiple"}) %>
+      <%= f.label :users %>
+      <%= collection_select(:course, :user_ids, @teachers, :id, :name, {:include_blank => false}, {:multiple => "multiple"}) %>
     </div>
     
     <div class="field">
@@ -42,7 +42,7 @@
     
     <div class="field">
       <%= f.label :enabled %>
-      <%= f.check_box :enabled %> <i>(para desativar, desmarque a opção.)</i>
+      <%= f.check_box :enabled %>
     </div>
   
 <hr class = "thick" />

@@ -1,5 +1,5 @@
 <%= content_tag_for :tr, matriculation, :class => "header" do %>
-  <td width="50%"><%= matriculation.course.name %></td>
+  <td width="50%"><%= matriculation.course.name.capitalize %></td>
   <td width="30%"><%= matriculation.user.name if can? :update, Matriculation %></td>
   <td class="right">
     <% if !current_user.admin? %>
@@ -7,7 +7,8 @@
     <% end %>
     
       <% if can? :update, Matriculation%>
-        <%= link_to admin_matriculation_path(matriculation), :class => "toolTip", :title => ("#{matriculation.enabled? ? 'Cancelar' : 'Aceitar'}"), :method => :put do %>
+        <%= link_to admin_matriculation_path(matriculation), :class => "toolTip", 
+            :title => ("#{matriculation.enabled? ? 'Cancelar' : 'Aceitar'}"), :method => :put do %>
           <%= image_tag((matriculation.enabled? ? "icons/cross.png" : "icons/tick.png")) %>
         <% end %> 
       <% end %> 

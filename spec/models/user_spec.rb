@@ -32,5 +32,16 @@ describe User do
       association.macro.should == :has_and_belongs_to_many
     end
   end
+  
+  it "should invite teacher for software" do
+    if user.admin?
+      teacher_user = User.new(:name => "Professor Aloprado", :email => "professor@professor.com")
+      teacher_user.teacher_invite
+      teacher_user.save
+      teacher_user.errors.count.should == 0
+      teacher_user.teacher?.should be_true
+    end
+    
+  end
 
 end

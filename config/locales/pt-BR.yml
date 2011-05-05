@@ -5,10 +5,12 @@ pt-BR:
   edit: Editar
   destroy: Apagar
   cancel: Cancelar
-  new: Criar %{model}
-  error_message_header: "%{count} erro(s) encontrado(s):"
+  new: Novo %{model}
+  error_message_header:
+    one: "1 erro encontrado:"
+    other: "%{count} erros encontrados:"
 
-  created: "%{model} criado(a) com sucesso."
+  created: "%{model} salvo(a) com sucesso."
   updated: "%{model} alterado(a) com sucesso."
   destroyed: "%{model} excluído(a) com sucesso."
 
@@ -293,8 +295,8 @@ pt-BR:
       course:
         name: "Nome"
         description: "Descrição"
-        enabled: "Ativar"
-        user: "Professor"
+        enabled: "Ativar/ Desativar"
+        users: "Professor(s)"
         timer_course: "Horário"
         price: "Preço(R$)"
         workload: "Carga horária"
@@ -313,8 +315,11 @@ pt-BR:
         theme: "Tema"
         date_at: "Data"
         description: "Descrição"
+        enabled: "Ativar/ Desativar"
       forum:
         title: "Título"
+        messages:
+          content: "Conteúdo"
       message:
         content: "Conteúdo"
 

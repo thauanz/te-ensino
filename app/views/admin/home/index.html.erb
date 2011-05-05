@@ -10,13 +10,16 @@
 
 <% if @matriculations.present? %>
   <table class="grid">
-    <th class="titulo" colspan="3"><h3><%= image_tag("/images/notepad.gif", :size=> "18x18")%> 
-    Inscrições 
-    <% if current_user.admin? %>
-    Pendentes
-    <%= select "home", "course_id", @courses.collect { |c| [c.name, c.id]}, { :include_blank => "Todos" } %>
-    <% end %>
-    </h3></th>
+    <th class="titulo" colspan="3">
+      <h3>
+        <%= image_tag("/images/notepad.gif", :size=> "18x18")%> 
+        Inscrições 
+        <% if current_user.admin? %>
+          Pendentes
+          <%= select "home", "course_id", @courses.collect { |c| [c.name, c.id]}, { :include_blank => "Todos" } %>
+        <% end %>
+      </h3>
+    </th>
   </table>
   
   <table class="grid" id="load">
@@ -27,16 +30,16 @@
 <% end %>
 
 <% if @alerts.present? %>
-<div id="alerts">
-  <table class="grid">
-    <th class="titulo" colspan="3"><h3><%= image_tag("/images/alert_icon.png", :size=> "18x18")%> Avisos</h3></th>
-    <%= render :partial => "/alerts/alert", :collection => @alerts %>
-  </table><br/>
-  <%= link_to "Ver todos", admin_alerts_path, :class => "right" %>
-</div>
-<br/>
-<hr class="thick">
+  <div id="alerts">
+    <table class="grid">
+      <th class="titulo" colspan="3"><h3><%= image_tag("/images/alert_icon.png", :size=> "18x18")%> Avisos</h3></th>
+      <%= render :partial => "/alerts/alert", :collection => @alerts %>
+    </table><br/>
+    <%= link_to "Ver todos", admin_alerts_path, :class => "right" %>
+  </div>
+  <hr class="thick">
 <% end %>
+
 <% if !current_user.admin? %>
-<%= render :partial => "calendar" %>
+  <%= render :partial => "calendar" %>
 <% end %>

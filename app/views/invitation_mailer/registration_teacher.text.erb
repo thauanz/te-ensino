@@ -1,4 +1,8 @@
-<p>You can use this url to login<br />
+<p>Seja bem-vindo <%= @user.name %><br />
+Você foi convidado a lecionar no <%= link_to "te-ensino", new_user_session_path %>.<br />
+Acesse com os dados abaixo <%= link_to "aqui", admin_root_path(:auth_token => @user.authentication_token)  %>.<br />
 
-<%= link_to "http://localhost:3000#{admin_root_path(:auth_token => @user.authentication_token)}", admin_root_path(:auth_token => @user.authentication_token)  %></p>
-
+Email: <%= @user.email %>
+Senha: <%= @user.password %><br />
+<b>Obs.: Senha gerada pelo sistema, caso queira modificar, acesse suas configurações de perfil.</b>
+</p>

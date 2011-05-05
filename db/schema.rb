@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20110423001643) do
     t.string   "name"
     t.text     "description"
     t.float    "price"
-    t.boolean  "enabled",     :default => false
+    t.boolean  "enabled",     :default => true
     t.string   "workload"
     t.integer  "amount"
     t.datetime "created_at"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20110423001643) do
     t.text     "description"
     t.integer  "course_id"
     t.integer  "user_id"
+    t.boolean  "enabled",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -6,6 +6,7 @@ class CreateLessons < ActiveRecord::Migration
       t.text :description
       t.integer :course_id
       t.integer :user_id
+      t.boolean :enabled, :default => false
 
       t.timestamps
     end

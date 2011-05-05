@@ -9,7 +9,7 @@
 
 TextDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eros dolor, lacinia non pharetra nec, pharetra non tortor. Sed vel urna libero, sit amet fringilla dolor. Nullam ut metus non urna consectetur luctus. Phasellus ac elit elit. Maecenas tempus rutrum orci ac varius. Sed vel neque mi, et adipiscing enim. Sed viverra condimentum purus vel congue. Curabitur et gravida turpis. Cras id porttitor arcu. Aenean enim mi, sollicitudin ut euismod in, aliquam adipiscing turpis. Ut interdum felis eget elit vestibulum nec aliquet ipsum iaculis. Vestibulum mi leo, mattis quis luctus non, interdum at urna. Integer mauris lacus, pharetra a pellentesque in, facilisis non augue. Aenean nec mauris ac lorem aliquet sollicitudin. Nulla tempor pulvinar urna, sed congue risus tincidunt et."
 
-admin = User.create!(:name => "Admin", :contact => "(31)9999-9999", :email => "admin@gmail.com", :password => "sistema", :role => User::ROLES[0])
+admin = User.create!(:name => "Administrador", :contact => "(31)9999-9999", :email => "admin@te-ensino.com", :password => "sistema", :role => User::ROLES[0])
 print "#{admin.name} criado com sucesso...\n"
 
 teacher1 = User.create!(:name => "Marcio Assis", :contact => "(33)3333-3333", :email => "assismiranda@gmail.com", :password => "1234567", :role => User::ROLES[1])
@@ -33,22 +33,25 @@ print "#{student.name} criado com sucesso...\n"
   :name         => hash_course[i],
   :description  => TextDescription,
   :enabled      => true,
-  :price        => 399.to_i,
+  :price        => 399.to_f,
+  :workload     => "60",
   :amount       => 60.to_i,
   :users        => [User.where(:role => "teacher", :id => (i+1)).first]
   )
   print "Curso de #{hash_course[i]} criado com sucesso...\n"
 end
 
-1.upto 100 do |i|
+10.upto 100 do |i|
   User.create!(
     :name => "User #{i}", 
     :contact => "(31)9903-0777", 
     :email => "user#{i}@gmail.com", 
     :password => "1234567", 
-    :role => User::ROLES[2]
+    :role => User::ROLES[2],
+    :profile => TextDescription,
+    :home_page => "http://www.google.com"
   )
-    
+ 
   Matriculation.create!(
     :user => User.last,
     :course => Course.find(rand(Course.count).zero? ? 1 : rand(Course.count)+1),
@@ -76,7 +79,8 @@ end
   :date_at => Date.today + i,
   :description => TextDescription,
   :user => user,
-  :course => user.courses.last
+  :course => user.courses.last,
+  :enabled => false
   )
   #Course.find(rand(Course.count).zero? ? 1 : rand(Course.count)+1)
   print "Lição #{i} criado com sucesso...\n"

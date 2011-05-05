@@ -2,7 +2,7 @@
 <p><strong><i>Email: </i></strong><%= @user.email %></p>
 
 <p><strong><i>Contato: </i></strong><%= @user.contact %></p>
-<p><strong><i>Home page: </i></strong><%= link_to(@user.home_page, url_for(@user.home_page), :target => "_blank") if !@user.home_page.nil? %></p>
+<p><strong><i>Home page: </i></strong><%= !@user.home_page.nil? ? link_to(@user.home_page, url_for(@user.home_page), :target => "_blank") : "N/D"  %></p>
 <p><strong><i>Perfil: </i></strong></p>
 <div class = "frame">
 <%= textilize @user.profile if !@user.profile.nil? %>

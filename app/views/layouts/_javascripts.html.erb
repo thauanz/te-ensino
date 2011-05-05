@@ -1,10 +1,12 @@
 <%= javascript_include_tag  "vendor/jquery", 
                             "rails", 
-                            "app/jquery.tipTip.minified", 
+                            "app/admin",
+                            "app/application", :cache => true
+%>
+
+<%= javascript_include_tag  "app/jquery.tipTip.minified", 
                             "app/jquery.ui.core", 
                             "app/jquery.ui.datepicker", 
                             "app/jquery.ui.widget", 
-                            "app/jquery.maskedinput", 
-                            "app/admin",
-                            "app/application"
+                            "app/jquery.maskedinput"
 %>

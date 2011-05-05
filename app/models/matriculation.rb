@@ -1,5 +1,5 @@
 class Matriculation < ActiveRecord::Base
-  default_scope order('course_id, user_id')
+  default_scope order(:course_id, :user_id)
   belongs_to :user
   belongs_to :course
   
@@ -9,6 +9,10 @@ class Matriculation < ActiveRecord::Base
   
   def name_with
     user.name
+  end
+  
+  def teachers
+    self.course.users.collect {|user| "#{user.name} (#{user.email})" }.join("<br/>").html_safe
   end
   
 private

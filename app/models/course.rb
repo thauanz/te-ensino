@@ -4,23 +4,21 @@ class Course < ActiveRecord::Base
   has_and_belongs_to_many :users  #professor
   has_many :lessons, :dependent => :destroy
   
-  validates_presence_of :name, :description, :price, :users
+  validates_presence_of :users, :name, :description, :workload, :amount, :price
   validates_uniqueness_of :name
-  #validate :teacher_matriculation
+  
+  def matriculations_active
+    self.matriculations.where(:enabled => true).present?
+  end
+  
+  def teachers
+    self.users.collect {|user| "#{user.name} (#{user.email})" }.join("<br/>").html_safe
+  end
   
   scope :activated, where(:enabled => true)
   
   scope :search, lambda { |terms| 
     where("name LIKE :t OR description LIKE :t OR price LIKE :t OR workload LIKE :t", :t => "%#{terms}%")
   }
-  
-private
-  #verifica se o professor ja é aluno do curso, para que ele não seja incluido como professor do mesmo curso.
-  def teacher_matriculation
-    self.matriculations.each do |user_matriculation|
-      self.users.each do |teacher|
-        errors.add(:user, I18n.t(:cannot_teacher_matriculation)) if teacher.teacher? && user_matriculation.id == teacher.id
-      end
-    end
-  end
+
 end

@@ -1,4 +1,6 @@
-<h2>Arquivos</h2>
+<h2>Arquivos
+<%= link_to_new(Asset, new_admin_asset_path) %>
+</h2>
 
 <% if @assets.present? %>
   <div id="assets">
@@ -9,10 +11,8 @@
   <p>Você não tem arquivos ainda.</p>
 <% end %>
 
+<%= will_paginate @assets, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
 <hr class="thick" />
-  <%= will_paginate @assets, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
-<div class="bar right">
-  <div class="right">
-    <%= link_to 'Enviar novo arquivo', new_admin_asset_path, :class => "right" %>
-  </div>
-</div>
+
+
+

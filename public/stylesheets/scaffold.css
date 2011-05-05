@@ -24,7 +24,7 @@ div.field, div.actions {
   color: red;
 }
 
-.field_with_errors input, .field_with_errors textarea{
+.field_with_errors input, .field_with_errors textarea, .field_with_errors select{
   background-color: #FFFFE6;
   border: 1px solid red;
 }

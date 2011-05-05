@@ -12,13 +12,11 @@ class Admin::UsersController < Admin::AdminController
   end
   
   def create
-    @user.role = current_user.role_invite
-    flash[:notice] = I18n.tm("created", "user") if @user.save
-    if @user.errors.keys == [:password]
-      @user.reset_authentication_token!
+    @user.teacher_invite if current_user.admin?
+    if @user.save
+      flash[:notice] = I18n.tm("created", "user")
       InvitationMailer.registration_teacher(@user).deliver
     end
-    @user.errors.delete(:password)
     respond_with @user, :location => admin_users_url
   end
   

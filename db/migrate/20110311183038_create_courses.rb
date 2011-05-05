@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.float :price
-      t.boolean :enabled, :default => false
+      t.boolean :enabled, :default => true
       t.string :workload
       t.integer :amount
 

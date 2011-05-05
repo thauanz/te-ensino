@@ -14,6 +14,12 @@ describe Course do
       course.errors[:name].should == ["can't be blank"]
     end
     
+    it "should reject if amount is not given" do
+      course.amount = nil
+      course.should have(1).error_on(:amount)
+      course.errors[:amount].should == ["can't be blank"]
+    end
+    
     it "should reject if description is not given" do
       course.description = nil
       course.should have(1).error_on(:description)

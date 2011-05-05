@@ -1,5 +1,4 @@
-<h2><%= @alert.course.name %></h2>
-<p><strong><i>Expirar em:</i></strong> <%= l @alert.expire %></p>
+<h2><%= @alert.course.name %><span class="hint right">Enviado por <%= @alert.user.name %></span></h2>
 <p><strong><i>Assunto:</i></strong> <%= @alert.title.capitalize %></p>
 <p><strong><i>Mensagem:</i></strong></p>
 <div class="frame"><%= textilize @alert.description %></div>

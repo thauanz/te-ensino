@@ -8,9 +8,10 @@ module Admin::AdminHelper
     end
   end
   
-  def link_to_new(model, url, html_options = {})
-    html_options.reverse_merge!(:class => "toolTip", :title => "Novo #{model.model_name.human}")
-    link_to t("new", :model => model.model_name.human), url, html_options
+  def link_to_new(model, url, text = "", html_options = {})
+    text_reference = text.blank? ? t("new", :model => model.model_name.human) : text
+    html_options.reverse_merge!(:class => "button right")
+    link_to text_reference, url, html_options
   end
     
   def link_to_edit(url, html_options = {})

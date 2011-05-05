@@ -1,5 +1,8 @@
 <h2><%= @matriculation.course.name %></h2>
 
+<h3>Professor(s)</h3>
+<%= @matriculation.teachers %>
+
   <h3>Aulas</h3>
 <% if @lessons.present? %>
   <table class="grid">

@@ -1,30 +1,28 @@
-<h2>Avisos</h2>
+<h2>Avisos
+<%= link_to_new(Alert, new_admin_alert_path) if(can? :create, Alert) %>
+</h2>
 
 <% if @alerts.present? %>
-  <ul class="list">
-    <% @alerts.each do |alert| %>
-      <%= content_tag_for :li, alert, :class => cycle(:odd, :even) do %>
-        <%= truncate(alert.title, :length => 30) %>
-        <span class="hint">Enviado <%= l alert.created_at %></span>
-        <div class="right middle">
-          <%= link_to admin_alert_path(alert) do %>
-            <%= image_tag("/images/icons/eye.png", :title => "Ver mensagem", :class => "toolTip")%>
-          <% end %>
-          <%= link_to_edit([:edit, :admin, alert]) if can? :update, Alert %>
-          <%= link_to_destroy([:admin, alert]) if can? :destroy, Alert %>
-        </div>
+  <table class="grid">
+    <ul class="list">
+      <% @alerts.each do |alert| %>
+        <%= content_tag_for :li, alert, :class => cycle(:odd, :even) do %>
+          <%= truncate(alert.title, :length => 30) %>
+          <span class="hint">Enviado <%= l alert.created_at %></span>
+          <div class="right middle">
+            <%= link_to admin_alert_path(alert) do %>
+              <%= image_tag("/images/icons/eye.png", :title => "Ver mensagem", :class => "toolTip")%>
+            <% end %>
+            <%= link_to_edit([:edit, :admin, alert]) if can? :update, Alert %>
+            <%= link_to_destroy([:admin, alert]) if can? :destroy, Alert %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
+  </table>
   <%= will_paginate @alerts, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
-  <hr class="thick">
-  <p>
-<% else %>
-  Não exite nenhum aviso.
-  <hr class="thick">
-<% end %>
 
-<% if(can? :create, Alert) %>
-  <%= link_to_new(Alert, new_admin_alert_path, :class => "right") %>
+<% else %>
+  <p>Não exite nenhum aviso.</p>
 <% end %>
-</p>
+<hr class="thick">
