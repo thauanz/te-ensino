@@ -10,6 +10,7 @@
 
 <% if @matriculations.present? %>
   <table class="grid">
+    <%= link_to("Ver lista", admin_matriculations_path, :class => :right) if current_user.admin? %>
     <th class="titulo" colspan="3">
       <h3>
         <%= image_tag("/images/notepad.gif", :size=> "18x18")%> 

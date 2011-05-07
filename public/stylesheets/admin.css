@@ -373,6 +373,20 @@ div#sidebar{
   background-image: url('/images/icons/cross.png');
 }
 
+.actived {
+  padding: 10px;
+  background-position: 1px;
+  background-repeat: no-repeat;
+  background-image: url('/images/icons/active.png');
+}
+
+.desactive {
+  padding: 10px;
+  background-position: 1px;
+  background-repeat: no-repeat;
+  background-image: url('/images/icons/desactive.png');
+}
+
 .minus {
   background-image: url('imagens/icons/minus.gif');
 }

@@ -11,7 +11,11 @@ class Admin::LessonsController < Admin::AdminController
     @lessons = @lessons.paginate(:page => params[:page], :per_page => 15)
   end
 
-  def show    
+  def show
+    begin
+      @audit = @lesson.audits.create!(:user_id => current_user.id) if current_user.student?
+    rescue
+    end
   end
   
   def new

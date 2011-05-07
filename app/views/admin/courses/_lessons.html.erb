@@ -6,6 +6,9 @@
   <ul class="list">
     <% @lessons.each do |lesson| %>
       <%= content_tag_for :li, lesson, :class => cycle(:odd, :even) do %>
+        <% if current_user.teacher? %>
+          <span class="<%= lesson.enabled ? :actived : :desactive %>"></span>
+        <% end %>
         <%= lesson.theme %>
         <span class="hint">Realizará em <%= l lesson.date_at %></span>
 

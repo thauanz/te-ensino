@@ -6,7 +6,7 @@
   <ul class="list">
     <% @courses.each do |course| %>
       <%= content_tag_for :li, course, :class => cycle(:odd, :even) do %>
-        <%= course.name %> <span class="hint">Criado <%= l course.created_at %></span>
+        <%= course.name %> <span class="hint"><%= l course.created_at %></span>
 
         <div class="right">
           <%= link_to [:admin, course] do %>

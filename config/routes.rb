@@ -26,6 +26,8 @@ AppEad::Application.routes.draw do
     resources :lessons, :except => [:new, :destroy] do
       get :copy, :on => :member
     end
+    match "lesson/:lesson_id/viewlist" => "audit#index", :as => :audit_lesson
+    match "alert/:alert_id/viewlist" => "audit#index", :as => :audit_alert
     resources :matriculations
     resources :alerts
   end

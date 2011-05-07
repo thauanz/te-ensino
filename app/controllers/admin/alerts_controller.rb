@@ -11,6 +11,10 @@ class Admin::AlertsController < Admin::AdminController
   end
 
   def show
+    begin
+      @audit = @alert.audits.create!(:user_id => current_user.id) if current_user.student?
+    rescue
+    end
   end
 
   def new

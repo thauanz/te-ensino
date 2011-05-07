@@ -22,6 +22,10 @@ describe Admin::LessonsController do
     it "recognizes and generates #destroy" do
       { :delete => "/app/courses/1/lessons/1" }.should route_to(:controller => "admin/lessons", :action => "destroy", :id => "1", :course_id => "1")
     end
+    
+    it "recognizes and generates #copy" do
+      { :get => "/app/lessons/1/copy"}.should route_to(:controller => "admin/lessons", :action => "copy", :id => "1")
+    end
 
   end
 end

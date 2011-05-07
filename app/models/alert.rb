@@ -5,6 +5,7 @@ class Alert < ActiveRecord::Base
 
   belongs_to :course 
   belongs_to :user
+  has_many :audits, :as => :audit
   
   validates_presence_of :title, :expire, :description
   validates_presence_of :course_id
@@ -14,6 +15,14 @@ class Alert < ActiveRecord::Base
 #  end
 
   validate :expire_today
+  
+  def opened_alert?(user_audit)
+    if User.find(user_audit).student?
+      self.audits.where(:user_id => user_audit).present?
+    else
+      true
+    end
+  end
  
 private
 

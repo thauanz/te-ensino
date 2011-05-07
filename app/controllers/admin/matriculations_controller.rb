@@ -6,6 +6,7 @@ class Admin::MatriculationsController < Admin::AdminController
   load_and_authorize_resource 
   
   def index
+    @matriculations = @matriculations.paginate(:page => params[:page], :per_page => 15)
   end
 
   def show

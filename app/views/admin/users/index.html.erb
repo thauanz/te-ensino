@@ -8,5 +8,6 @@
           <%= render :partial => "user", :collection => user_group %>
         </ul>
     <% end %>
+    <%= will_paginate @users, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
   <% end %>
 <hr class = "thick" />

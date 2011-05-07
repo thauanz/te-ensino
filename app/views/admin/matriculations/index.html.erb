@@ -1,7 +1,14 @@
+<h2>Matriculas</h2>
 <% if @matriculations.present? %>
-  <ul class="list">
+  <table class="grid">
+    <tr>
+      <th>Curso</th>
+      <th>Nome Usuário</th>
+      <th></th>
+    </tr>
     <%= render @matriculations %>
-  </ul>
+  </table>
+  <p><%= will_paginate @matriculations, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %></p>
 <% else %>
   <p>Não existe matrículas ainda.</p>
 <% end %>

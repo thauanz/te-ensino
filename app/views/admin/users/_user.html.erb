@@ -1,6 +1,6 @@
 <%= content_tag_for :li, user, :class => cycle(:odd, :even) do %>
   
-  <%= user.name %> (<%= user.email %>)
+  <%= user.name %>
   
   <% if user.last_sign_in_at.present? %>
     <span class="hint">Último acesso <%= l user.last_sign_in_at %></span>

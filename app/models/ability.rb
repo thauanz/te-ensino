@@ -25,6 +25,7 @@ class Ability
         can :update, User, :role => "student"
         can :matriculations, Course
         can :manage, [Asset, Alert, Lesson], :user_id => user.id
+        can :read, Audit
       else
           if user.role == "student"
             
