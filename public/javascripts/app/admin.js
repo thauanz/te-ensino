@@ -18,10 +18,6 @@ $(function(){
 });
 
 $(function() {
-	$( ".datepicker" ).datepicker();
-});
-
-$(function() {
     $.mask.definitions['~'] = "[+-]";
     $("#user_contact").mask("(99)9999-9999");
     $("#user_cellfone").mask("(99)9999-9999");
@@ -65,17 +61,25 @@ jQuery(function($){
 	$.datepicker.setDefaults($.datepicker.regional['pt-BR']);
 });
 
+$(function() {
+	$( ".datepicker" ).datepicker();
+});
+
+function loading(){
+  $('#loading').remove();
+  var loading = $('<img id="loading" alt="Carregando" title="Carregando" src="images/icons/ajax-loader.gif" />').appendTo('#wait');
+  
+  loading.ajaxStart(function(){ $(this).show(); });
+  loading.ajaxStop(function(){ $(this).hide(); });
+}
+
 $("#home_course_id").live("change", function(){
   if($(this).val() > 0)
     $.get("/app.js?course_id="+$(this).val());
   else
     $.get("/app.js");
   
-  $('#loading').remove();
-  var loading = $('<img id="loading" alt="Carregando" title="Carregando" src="images/icons/ajax-loader.gif" />').appendTo('#wait');
-  
-  loading.ajaxStart(function(){ $(this).show(); });
-  loading.ajaxStop(function(){ $(this).hide(); });
+  loading();
   
   return false;
 });
@@ -96,5 +100,9 @@ $("#user-active.cross").live("mouseenter", function(){
   return false;
 });
 
-
+$("a.ui-state-default").live("click", function(){
+  $.get("/app.js?date_at="+$(".datepicker").datepicker("getDate"));
+  loading();
+  return false;
+});
 

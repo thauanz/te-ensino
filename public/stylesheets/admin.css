@@ -317,10 +317,10 @@ div#sidebar{
   list-style: none;
 }
 #actions li a {
-  background-color: #666;
+  background-color: #006699;
   background-position: 12px;
   background-repeat: no-repeat;
-  border: 1px solid #333;
+  border: 1px solid #006699;
   color: #fff;
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -329,7 +329,7 @@ div#sidebar{
   padding: 9px 12px 9px 36px;
 }
 #actions li a:hover {
-  background-color: #777575;
+  background-color: #548096;
 }
 
 #actions li {

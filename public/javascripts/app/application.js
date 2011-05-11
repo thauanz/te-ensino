@@ -16,21 +16,3 @@ courseSelect = function() {
   });
 };
 
-$(function() {  
-  if ($("#alerts").length > 0) {  
-    setTimeout(updateAlerts, 10000);  
-  }  
-});  
-  
-function updateAlerts() {  
-  var alert_id = $('#alert-id').attr('data-id');
-  if ($('.alert').length > 0) {
-    var after = $('.alert:first').attr('data-time');
-  }
-  else {
-    var after = 0;
-  }
-  $.getScript("/alerts.js?after="+after); 
-  setTimeout(updateAlerts, 10000);
-
-};

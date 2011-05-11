@@ -17,7 +17,7 @@
         Inscrições 
         <% if current_user.admin? %>
           Pendentes
-          <%= select "home", "course_id", @courses.collect { |c| [c.name, c.id]}, { :include_blank => "Todos" } %>
+          <%= select "home", "course_id", @courses.collect { |c| [c.name.capitalize, c.id]}, { :include_blank => "Todos" } %>
         <% end %>
       </h3>
     </th>
@@ -30,17 +30,31 @@
   <hr class = "thick" />
 <% end %>
 
+<% if !current_user.admin? %>
+  <table class="grid">
+    <th class="titulo" colspan="3"><h3><%= image_tag("/images/calendar.png", :size=> "18x18")%> 
+    Calendário de Aulas
+    </h3>
+    </th>
+  </table>
+  <table class="grid" id="calendar">
+    <%= render :partial => "lesson", :collection => @lessons %>
+    <% if !@lessons.present? %>
+      <tr class="header">
+        <td>Não existe aula registrada para a data.</td>
+      </tr>
+    <% end %>
+  </table>
+  <hr class="thick">
+<% end %>
+
 <% if @alerts.present? %>
   <div id="alerts">
     <table class="grid">
       <th class="titulo" colspan="3"><h3><%= image_tag("/images/alert_icon.png", :size=> "18x18")%> Avisos</h3></th>
-      <%= render :partial => "/alerts/alert", :collection => @alerts %>
+      <%= render :partial => "alert", :collection => @alerts %>
     </table><br/>
     <%= link_to "Ver todos", admin_alerts_path, :class => "right" %>
   </div>
   <hr class="thick">
-<% end %>
-
-<% if !current_user.admin? %>
-  <%= render :partial => "calendar" %>
 <% end %>

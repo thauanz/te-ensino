@@ -1,1 +1,9 @@
-$("table#load").html("<%= escape_javascript(render @matriculations) %>");
+<% if current_user.admin? %>
+  $("table#load").html("<%= escape_javascript(render @matriculations) %>");
+<% else %>
+  <% if @lessons.present? %>
+    $("table#calendar").html("<%= escape_javascript(render :partial => 'lesson', :collection => @lessons) %>");
+  <% else %>
+    $("table#calendar").html("<tr class='header'><td>Não existe aula registrada para a data.</td></tr>");
+  <% end %>
+<% end %>

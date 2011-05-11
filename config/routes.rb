@@ -31,7 +31,6 @@ AppEad::Application.routes.draw do
     resources :matriculations
     resources :alerts
   end
-  match '/alerts' => 'alerts#index', :as => :alerts  
   root :to => "pages#index"
   
   # The priority is based upon order of creation:

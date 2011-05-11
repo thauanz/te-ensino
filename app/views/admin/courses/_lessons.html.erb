@@ -13,6 +13,7 @@
         <span class="hint">Realizará em <%= l lesson.date_at %></span>
 
         <div class="right">
+          <%= image_tag("/images/icons/attachment.png", :title => "Anexo", :class => "toolTip") if lesson.assets.present? %>
           <%= link_to admin_lesson_path(lesson) do %>
             <%= image_tag("/images/icons/eye.png", :title => "Ver", :class => "toolTip")%>
           <% end %>

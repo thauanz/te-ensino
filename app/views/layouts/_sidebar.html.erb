@@ -23,5 +23,9 @@
     <li><%= link_to t(".alert"), new_admin_alert_path, :class => "add_icon" %></li>
   <% end %>
 </ul>
+
+<% if can? :read, Lesson %>
+  <div id="mark" class="datepicker right" ></div>
+<% end %>
 </div>
 

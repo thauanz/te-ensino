@@ -1,9 +1,0 @@
-<tr class="header alert <%= 'bold' if !alert.opened_alert?(current_user.id) %>" data-time="<%= alert.created_at.to_i %>" data-id="<%= alert.id %>">
-  <td width="50%"><%= truncate(alert.title, :length => 30) %></td>
-  <td width="40%"><%= l(alert.created_at) %></td>
-  <td class="right">
-    <%= link_to admin_alert_path(alert) do %>
-      <%= image_tag("/images/icons/eye.png", :title => "Ver mensagem", :class => "toolTip")%>
-    <% end %>
-  </td>
-</tr>
