@@ -1,0 +1,11 @@
+<%= content_tag_for :tr, lesson, :class => "header" do %>
+  <td width="20%"><%= lesson.theme.capitalize %></td>
+  <td width="10%"><%= lesson.course.name.capitalize %></td>
+  <td><%= image_tag("/images/icons/attachment.png", :title => "Anexo", :class => "toolTip") if lesson.assets.present? %></td>
+  <td width="40%"><%= truncate(lesson.description, :length => 50) %></td>
+  <td class="right">
+    <%= link_to image_tag("/images/icons/eye.png", :title => "Ver", :class => "toolTip"), admin_lesson_path(lesson) %>
+    <%= link_to_edit([:edit, :admin, lesson]) if can? :update, Lesson %>
+    <%= link_to image_tag("/images/icons/view_list.png", :title => "Quem viu", :class => "toolTip"), admin_audit_lesson_path(lesson) if ((can? :read, Audit) && lesson.audits.present?)%>
+  </td>
+<% end %>
