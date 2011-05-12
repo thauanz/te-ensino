@@ -19,7 +19,7 @@ module ApplicationHelper
   alias_method :ta, :translate_attribute
 
   def favicon
-    "<link rel=\"shortcut icon\" href=\"/images/favicon.png\" />".html_safe
+    "<link rel=\"shortcut icon\" href=\"/images/bullet.png\" />".html_safe
   end
   
   def analytics(site_id)

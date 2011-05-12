@@ -24,8 +24,7 @@
   <% end %>
 </ul>
 
-<% if can? :read, Lesson %>
-  <div id="mark" class="datepicker right" ></div>
-<% end %>
+<%= yield :calendar %>
+
 </div>
 

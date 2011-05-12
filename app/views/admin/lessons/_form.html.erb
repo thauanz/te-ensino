@@ -57,6 +57,6 @@
     <%= f.submit "Salvar" %>
   </div>
   
-  <%= link_to t('cancel'), admin_course_path(params[:course_id]) %>
+  <%= link_to t('cancel'), url_for(:back) %>
    
 <% end %>

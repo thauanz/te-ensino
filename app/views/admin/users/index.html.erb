@@ -9,5 +9,7 @@
         </ul>
     <% end %>
     <%= will_paginate @users, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
+  <% else %>
+    <p>Não existe usuários ainda.</p>
   <% end %>
 <hr class = "thick" />

@@ -58,3 +58,11 @@
   </div>
   <hr class="thick">
 <% end %>
+
+<% content_for :calendar do %>
+  <% if can? :read, Lesson %>
+  <hr class="thick">
+  <span class="large title-top">Calendário de Aulas</span>
+  <div id="mark" class="datepicker right" ></div>
+  <% end %>
+<% end %>

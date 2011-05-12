@@ -6,9 +6,9 @@
   <span class="hint"><%= "Publicado por #{lesson.user.name}. Realizará em " %><%= l lesson.date_at %></span>
   
   <div class="right middle">
+    <%= link_to image_tag("/images/icons/view_list.png", :title => "Quem viu", :class => "toolTip"), admin_audit_lesson_path(lesson) if ((can? :read, Audit) && lesson.audits.present?)%>
     <%= link_to image_tag("/images/icons/eye.png", :title => "Ver", :class => "toolTip"), admin_lesson_path(lesson) %>
     <%= link_to image_tag("/images/icons/copy.png", :title => "Copiar Aula", :class => "toolTip"), copy_admin_lesson_path(lesson) if can? :create, Lesson %>
     <%= link_to_edit([:edit, :admin, lesson]) if can? :update, Lesson %>
-    <%= link_to image_tag("/images/icons/view_list.png", :title => "Quem viu", :class => "toolTip"), admin_audit_lesson_path(lesson) if ((can? :read, Audit) && lesson.audits.present?)%>
   </div>
 <% end %>
