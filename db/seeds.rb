@@ -41,7 +41,7 @@ print "#{student.name} criado com sucesso...\n"
   print "Curso de #{hash_course[i]} criado com sucesso...\n"
 end
 
-10.upto 100 do |i|
+10.upto 30 do |i|
   User.create!(
     :name => "User #{i}", 
     :contact => "(31)9903-0777", 
@@ -54,7 +54,64 @@ end
  
   Matriculation.create!(
     :user => User.last,
-    :course => Course.find(rand(Course.count).zero? ? 1 : rand(Course.count)+1),
+    :course => Course.find(1),
+    :enabled => false
+  )
+  print "Aluno #{User.last.name} matriculado no curso de #{Matriculation.last.course.name}\n"
+end
+
+31.upto 60 do |i|
+  User.create!(
+    :name => "User #{i}", 
+    :contact => "(31)9903-0777", 
+    :email => "user#{i}@gmail.com", 
+    :password => "1234567", 
+    :role => User::ROLES[2],
+    :profile => TextDescription,
+    :home_page => "http://www.google.com"
+  )
+ 
+  Matriculation.create!(
+    :user => User.last,
+    :course => Course.find(2),
+    :enabled => false
+  )
+  print "Aluno #{User.last.name} matriculado no curso de #{Matriculation.last.course.name}\n"
+end
+
+61.upto 80 do |i|
+  User.create!(
+    :name => "User #{i}", 
+    :contact => "(31)9903-0777", 
+    :email => "user#{i}@gmail.com", 
+    :password => "1234567", 
+    :role => User::ROLES[2],
+    :profile => TextDescription,
+    :home_page => "http://www.google.com"
+  )
+ 
+  Matriculation.create!(
+    :user => User.last,
+    :course => Course.find(3),
+    :enabled => false
+  )
+  print "Aluno #{User.last.name} matriculado no curso de #{Matriculation.last.course.name}\n"
+end
+
+81.upto 99 do |i|
+  User.create!(
+    :name => "User #{i}", 
+    :contact => "(31)9903-0777", 
+    :email => "user#{i}@gmail.com", 
+    :password => "1234567", 
+    :role => User::ROLES[2],
+    :profile => TextDescription,
+    :home_page => "http://www.google.com"
+  )
+ 
+  Matriculation.create!(
+    :user => User.last,
+    :course => Course.find(4),
     :enabled => false
   )
   print "Aluno #{User.last.name} matriculado no curso de #{Matriculation.last.course.name}\n"
