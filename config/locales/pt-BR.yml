@@ -42,9 +42,10 @@ pt-BR:
 
   layouts:
     sidebar:
-      teacher: "Criar Professor"
-      matriculation: "Matrícular em algum curso"
-      alert: "Criar novo aviso"
+      teacher: "Cadastrar Usuário"
+      matriculation: "Matrícular"
+      asset: "Enviar arquivo"
+      alert: "Enviar novo aviso"
 
   unauthorized:
     manage:
@@ -285,6 +286,7 @@ pt-BR:
         contact: "Telefone"
         cellfone: "Celular"
         profile: "Perfil"
+        role: "Perfil"
         email: "Email"
         home_page: "Home page"
         password: "Senha"
@@ -301,9 +303,10 @@ pt-BR:
         price: "Preço(R$)"
         workload: "Carga horária"
         amount: "Quantidade"
+        tutor_id: "Tutor"
       alert:
         title: "Assunto"
-        expire: "Data de expirar"
+        expire: "Data"
         description: "Descrição"
         course_id: "Curso"
       asset:

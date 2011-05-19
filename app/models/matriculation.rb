@@ -15,6 +15,10 @@ class Matriculation < ActiveRecord::Base
     self.course.users.collect {|user| "#{user.name} (#{user.email})" }.join("<br/>").html_safe
   end
   
+  def tutor
+    User.where(:id => self.course.tutor_id).collect {|user| "#{user.name} (#{user.email})" }.join("<br/>").html_safe
+  end
+  
 private
   def amount_course_students
     _course = Course.find_by_id(self.course_id.to_i)

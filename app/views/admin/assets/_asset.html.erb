@@ -12,7 +12,7 @@
     <%= link_to asset.document.url, :target => "_blank" do %>
       <%= image_tag("/images/icons/page_white_put.png", :title => "Baixar arquivo #{asset.document_file_name}", :class => "toolTip")%>
     <% end %>
-    <%= link_to_edit [:edit, :admin, asset] %>
-    <%= link_to_destroy [:admin, asset] %>
+    <%= link_to_edit [:edit, :admin, asset] if can? :update, asset %>
+    <%= link_to_destroy [:admin, asset] if can? :destroy, asset %>
   </td>
 <% end %>

@@ -3,6 +3,10 @@
 <h3>Professor(s)</h3>
 <%= @matriculation.teachers %>
 
+<% if @matriculation.course.tutor_id.present? %>
+  <h3>Tutor</h3>
+  <%= @matriculation.tutor %>
+<% end %>
   <h3>Aulas</h3>
 <% if @lessons.present? %>
   <table class="grid">

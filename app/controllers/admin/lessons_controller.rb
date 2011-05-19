@@ -53,7 +53,8 @@ class Admin::LessonsController < Admin::AdminController
   
 private
   def load_resources
-    @assets = current_user.assets
+    #@assets = current_user.assets
+    @assets = Asset.where(:user_id => current_user.id)
   end
   
 end

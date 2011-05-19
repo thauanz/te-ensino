@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  default_scope order('name')
+  default_scope order('role, name')
   # Include default devise modules. Others available are:
   # :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -15,8 +15,9 @@ class User < ActiveRecord::Base
   has_many :alerts, :dependent => :destroy
   has_many :forums, :dependent => :destroy
   has_many :messages, :dependent => :destroy
+  has_many :tutors, :class_name => "Course", :foreign_key => "tutor_id"
   
-  ROLES = %w[admin teacher student]
+  ROLES = %w[admin teacher student tutor]
   
   validates_presence_of :role, :name
   validates_inclusion_of :enabled, :in => [true, false]
@@ -25,8 +26,9 @@ class User < ActiveRecord::Base
                     :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
   end
    
-  scope :admin, where(:role => ROLES[1])
-  scope :teacher, where(:role => ROLES[2])
+  #scope :admin, where(:role => ROLES[1])
+  scope :teacher, where(:role => ROLES[1])
+  scope :tutor, where(:role => ROLES[3])
   
   def teacher?
     self.role == ROLES[1]
@@ -40,8 +42,12 @@ class User < ActiveRecord::Base
     self.role == ROLES[2]  
   end
   
-  def teacher_invite
-    self.password, self.role = SecureRandom.hex(4), ROLES[1]
+  def tutor?
+    self.role == ROLES[3]
+  end
+  
+  def password_invite(i)
+    self.password, self.role = SecureRandom.hex(4), ROLES[i.to_i]
   end
     
 protected

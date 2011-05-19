@@ -1,6 +1,6 @@
 <h2>Início <div id="wait" class="right"></div></h2>
 
-<% if @courses.present? && current_user.teacher? %>
+<% if @courses.present? && (current_user.teacher? || current_user.tutor?) %>
   <table class="grid">
       <th class="titulo" colspan="3"><h3><%= image_tag("/images/notepad.gif", :size=> "18x18")%> Cursos Ministrados</h3></th>
       <%= render :partial => "course", :collection => @courses %>
@@ -59,10 +59,10 @@
   <hr class="thick">
 <% end %>
 
-<% content_for :calendar do %>
+<%= content_for :calendar do %>
   <% if can? :read, Lesson %>
-  <hr class="thick">
-  <span class="large title-top">Calendário de Aulas</span>
-  <div id="mark" class="datepicker right" ></div>
+    <hr class="thick">
+    <span class="large title-top">Calendário de Aulas</span>
+    <div id="mark" class="datepicker right" ></div>
   <% end %>
 <% end %>

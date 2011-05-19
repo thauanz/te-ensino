@@ -7,6 +7,7 @@ class CreateCourses < ActiveRecord::Migration
       t.boolean :enabled, :default => true
       t.string :workload
       t.integer :amount
+      t.integer :tutor_id
 
       t.timestamps
     end

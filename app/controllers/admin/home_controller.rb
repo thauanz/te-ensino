@@ -11,6 +11,7 @@ class Admin::HomeController < Admin::AdminController
     else
       if params[:date_at].nil?
         @courses = current_user.courses if current_user.teacher?
+        @courses = current_user.tutors if current_user.tutor?
         
         @matriculations = current_user.matriculations if current_user.student?
         
@@ -23,6 +24,8 @@ class Admin::HomeController < Admin::AdminController
       
       @lessons = current_user.teacher? ? 
                   current_user.lessons.where(:date_at => date_params).all : 
+                  current_user.tutor? ?
+                  Lesson.joins(:course).where("courses.tutor_id = ? AND date_at = ?", current_user.id, date_params).all :
                   Lesson.joins(
                     :course => :matriculations).where( 
                       :enabled => true,

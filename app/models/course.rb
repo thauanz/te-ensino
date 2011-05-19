@@ -3,6 +3,7 @@ class Course < ActiveRecord::Base
   has_many :alerts
   has_and_belongs_to_many :users  #professor
   has_many :lessons, :dependent => :destroy
+  belongs_to :user, :class_name => "User", :foreign_key => "tutor_id"
   
   validates_presence_of :users, :name, :description, :workload, :amount, :price
   validates_uniqueness_of :name
@@ -20,5 +21,9 @@ class Course < ActiveRecord::Base
   scope :search, lambda { |terms| 
     where("name LIKE :t OR description LIKE :t OR price LIKE :t OR workload LIKE :t", :t => "%#{terms}%")
   }
+    
+  def tutors
+    User.where(:id => self.tutor_id).collect {|user| "#{user.name} (#{user.email})" }.join("<br/>").html_safe
+  end
 
 end

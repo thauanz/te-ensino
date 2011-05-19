@@ -3,6 +3,10 @@
   <%= error_messages_for @user %>
 
   <p>
+    <%= f.label :role %>
+    <%= f.select :role, [[:Professor, 1], [:Tutor, 3]] %>
+  </p>
+  <p>
     <%= f.label :name %>
     <%= f.text_field :name %>
   </p>

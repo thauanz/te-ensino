@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20110506033851) do
     t.boolean  "enabled",     :default => true
     t.string   "workload"
     t.integer  "amount"
+    t.integer  "tutor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

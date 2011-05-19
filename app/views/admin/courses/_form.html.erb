@@ -1,15 +1,16 @@
 <%= form_for([:admin, @course]) do |f| %>
   
   <%= error_messages_for @course %>
-  
-  <div class="actions right">
-    <%= f.submit "Salvar" %>
-  </div>
-  
+   
   <% if can? :manage, Course %>
     <div class="field">
       <%= f.label :users %>
       <%= collection_select(:course, :user_ids, @teachers, :id, :name, {:include_blank => false}, {:multiple => "multiple"}) %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :tutor_id %>
+      <%= collection_select(:course, :tutor_id, @tutors, :id, :name, {:include_blank => true}) %>
     </div>
     
     <div class="field">

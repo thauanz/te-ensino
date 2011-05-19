@@ -1,3 +1,10 @@
+<h3>Professor(s)</h3>
+<%= @course.teachers %>
+<% if @course.tutors.present? %>
+  <h3>Tutor</h3>
+  <%= @course.tutors %>
+<% end %>
+
 <h3>Aulas do curso
 <%= link_to "Nova Aula", new_admin_course_lesson_path(@course), :class => "button right" %>
 </h3>
@@ -6,7 +13,7 @@
   <ul class="list">
     <% @lessons.each do |lesson| %>
       <%= content_tag_for :li, lesson, :class => cycle(:odd, :even) do %>
-        <% if current_user.teacher? %>
+        <% if current_user.teacher? || current_user.tutor? %>
           <span class="<%= lesson.enabled ? :actived : :desactive %>"></span>
         <% end %>
         <%= lesson.theme %>
@@ -17,8 +24,8 @@
           <%= link_to admin_lesson_path(lesson) do %>
             <%= image_tag("/images/icons/eye.png", :title => "Ver", :class => "toolTip")%>
           <% end %>
-          <%= link_to_edit([:edit, :admin, @course, lesson]) if can? :update, Lesson %>
-          <%= link_to_destroy([:admin, @course, lesson]) if can? :destroy, Lesson %>
+          <%= link_to_edit([:edit, :admin, @course, lesson]) if can? :update, lesson %>
+          <%= link_to_destroy([:admin, @course, lesson]) if can? :destroy, lesson %>
         </div>
       <% end %>
     <% end %>

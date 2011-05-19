@@ -14,7 +14,7 @@
     <li><%= link_to t(".teacher"), new_admin_user_path, :class => "add_icon" %></li>
   <% end %>
   <% if can? :create, Asset %>
-    <li><%= link_to "Enviar novo arquivo", new_admin_asset_path, :class => "add_icon" %></li>
+    <li><%= link_to t(".asset"), new_admin_asset_path, :class => "add_icon" %></li>
   <% end %>
   <% if can? :create, Matriculation %>
     <li><%= link_to t(".matriculation"), new_admin_matriculation_path, :class => "add_page_icon" %></li>

@@ -24,8 +24,11 @@ print "#{teacher.name} criado com sucesso...\n"
 teacher = User.create!(:name => "Maria Tereza", :contact => "(31)9903-0777", :email => "tete@gmail.com", :password => "thauan", :role => User::ROLES[1])
 print "#{teacher.name} criado com sucesso...\n"
 
-student = User.create(:name => "Jessica", :contact => "(31)8787-9898", :email => "jessica@gmail.com", :password => "thauan", :role => User::ROLES[2])
-print "#{student.name} criado com sucesso...\n"
+tutor = User.create(:name => "Jessica", :contact => "(31)8787-9898", :email => "jessica@gmail.com", :password => "thauan", :role => User::ROLES[3])
+print "#{tutor.name} criado com sucesso...\n"
+
+tutor1 = User.create(:name => "Luiza", :contact => "(31)8787-9898", :email => "luiza@gmail.com", :password => "thauan", :role => User::ROLES[3])
+print "#{tutor1.name} criado com sucesso...\n"
 
 1.upto 4 do |i|
   hash_course = {1 => "Sistema de informação", 2 => "IA", 3 => ".NET", 4 => "TDD"}
@@ -36,12 +39,13 @@ print "#{student.name} criado com sucesso...\n"
   :price        => 399.to_f,
   :workload     => "60",
   :amount       => 60.to_i,
+  :tutor_id     => User.find_by_role("tutor").id,
   :users        => [User.where(:role => "teacher", :id => (i+1)).first]
   )
   print "Curso de #{hash_course[i]} criado com sucesso...\n"
 end
 
-10.upto 30 do |i|
+15.upto 30 do |i|
   User.create!(
     :name => "User #{i}", 
     :contact => "(31)9903-0777", 

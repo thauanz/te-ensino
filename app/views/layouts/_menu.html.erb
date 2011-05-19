@@ -13,7 +13,7 @@
         <%= m.lessons "Aulas", admin_lessons_path %>
       <% end %>
       
-      <% if can? :manage, Asset %>
+      <% if can? :read, Asset %>
         <%= m.assets "Arquivos", admin_assets_path %>
       <% end %>
       

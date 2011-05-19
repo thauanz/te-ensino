@@ -11,7 +11,9 @@ class Admin::CoursesController < Admin::AdminController
   end
 
   def show
-    @lessons = current_user.lessons.where(:course_id => params[:id]).paginate(:page => params[:page], :per_page => 15)
+    @lessons = Lesson.joins(:course).where("course_id = ?", params[:id])
+    @lessons = @lessons.where("courses.tutor_id = ?", current_user.id) if current_user.tutor?
+    @lessons = @lessons.paginate(:page => params[:page], :per_page => 15) 
   end
 
   def new
@@ -42,6 +44,7 @@ class Admin::CoursesController < Admin::AdminController
   
 private
   def load_resources
-    @teachers = User.admin
+    @teachers = User.teacher
+    @tutors = User.tutor
   end
 end

@@ -13,7 +13,8 @@ class Admin::UsersController < Admin::AdminController
   end
   
   def create
-    @user.teacher_invite if current_user.admin?
+    @user.password_invite(params[:user][:role]) if current_user.admin?
+
     if @user.save
       flash[:notice] = I18n.tm("created", "user")
       InvitationMailer.registration_teacher(@user).deliver

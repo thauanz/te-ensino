@@ -7,7 +7,7 @@ class Admin::AlertsController < Admin::AdminController
   load_and_authorize_resource
   
   def index
-    @alerts = @alerts.paginate(:page => params[:page], :per_page => 15)
+    @alerts = @alerts.paginate(:page => params[:page], :per_page => 15) if !@alerts.nil?
   end
 
   def show
@@ -41,6 +41,7 @@ class Admin::AlertsController < Admin::AdminController
 
 private
   def load_resources
-    @courses = current_user.courses.activated
+    @courses = current_user.courses.activated if current_user.teacher?
+    @courses = current_user.tutors.activated if current_user.tutor?
   end
 end

@@ -36,12 +36,18 @@ describe User do
   it "should invite teacher for software" do
     if user.admin?
       teacher_user = User.new(:name => "Professor Aloprado", :email => "professor@professor.com")
-      teacher_user.teacher_invite
+      teacher_user.password_invite(1)
       teacher_user.save
       teacher_user.errors.count.should == 0
       teacher_user.teacher?.should be_true
     end
-    
+  end
+  
+  it "should valid roles users" do
+    User::ROLES[0].should == "admin"
+    User::ROLES[1].should == "teacher"
+    User::ROLES[2].should == "student"
+    User::ROLES[3].should == "tutor"
   end
 
 end
