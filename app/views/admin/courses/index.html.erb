@@ -1,4 +1,4 @@
-<h2>Cursos
+<h2 class="list-title">Cursos
 <%= link_to_new(Course, new_admin_course_path) if can? :manage, Course %>
 </h2>
 
@@ -29,7 +29,7 @@
     <% end %>
   </ul>  
 <% else %>
-  <p>Não existe cursos cadastrados.</p>
+  <p>Não existe cursos.</p>
 <% end %>
 
 <%= will_paginate @courses, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>

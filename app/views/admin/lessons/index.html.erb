@@ -1,9 +1,9 @@
-<h2>Aulas</h2>
+<h2 class="list-title">Aulas</h2>
 
 <% if @lessons.present? %>
   <%= render :partial => "lessons" %>
 <% else %>
-<p>Não existe aulas registradas ainda.</p>
+<p>Não existe aulas registradas.</p>
 <% end %>
 
 <%= will_paginate @lessons, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>

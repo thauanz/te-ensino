@@ -1,4 +1,4 @@
-<h2>Arquivos
+<h2 class="list-title">Arquivos
 <%= link_to_new(Asset, new_admin_asset_path) %>
 </h2>
 
@@ -8,7 +8,7 @@
   </div>
 
 <% else %>
-  <p>Você não tem arquivos ainda.</p>
+  <p>Não existe arquivos.</p>
 <% end %>
 
 <%= will_paginate @assets, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>

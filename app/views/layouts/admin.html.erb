@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>[te]ensino</title>
+  <title>[zatta]ensina</title>
   <%= favicon %>
 
   <%= render :partial => "layouts/stylesheets" %>
@@ -30,7 +30,7 @@
     <div id="body-header">
       <% if user_signed_in? %>
         <%= link_to admin_root_path do %>
-          <div id="logo">[te]ensino</div>
+          <div id="logo">[zatta]ensina</div>
         <% end %>
         Seja bem vindo <strong><%= "#{current_user.name}" %></strong>! (<%= t current_user.role %>)<br />
         <div id="user-bar" class="right">
@@ -46,7 +46,7 @@
         
       <% else %>
         <%= link_to root_path do %>
-          <div id="logo">[te]ensino</div>
+          <div id="logo">[zatta]ensina</div>
         <% end %>
       <% end %>
     </div>

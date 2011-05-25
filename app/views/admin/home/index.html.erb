@@ -1,4 +1,4 @@
-<h2>Início <div id="wait" class="right"></div></h2>
+<h2 class="education-title">Ambiente <div id="wait" class="right"></div></h2>
 
 <% if @courses.present? && (current_user.teacher? || current_user.tutor?) %>
   <table class="grid">
@@ -41,7 +41,7 @@
     <%= render :partial => "lesson", :collection => @lessons %>
     <% if !@lessons.present? %>
       <tr class="header">
-        <td>Não existe aula registrada para a data.</td>
+        <td>Não existe aula(s) registrada(s) na data.</td>
       </tr>
     <% end %>
   </table>
@@ -63,6 +63,6 @@
   <% if can? :read, Lesson %>
     <hr class="thick">
     <span class="large title-top">Calendário de Aulas</span>
-    <div id="mark" class="datepicker right" ></div>
+    <div id="date-ambient" class="datepicker right" ></div>
   <% end %>
 <% end %>

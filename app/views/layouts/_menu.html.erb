@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div id="main-nav">
     <%= menu do |m| %>
-      <%= m.home "Início", admin_root_path %>
+      <%= m.home "Ambiente", admin_root_path %>
       
       <% if can? :manage, Course %>
         <%= m.courses "Cursos", admin_courses_path %>

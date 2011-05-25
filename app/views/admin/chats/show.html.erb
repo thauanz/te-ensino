@@ -1,0 +1,15 @@
+<script type="text/javascript" src="http://localhost:9292/faye.js"></script>
+<%= javascript_include_tag "app/chat" %>
+
+<h2 class="chat-title"><%= Course.find(params[:course_id]).name %> (Chat)</h2>
+<div id="chat" class="frame">
+  <ul id=<%= "chat#{params[:course_id]}" %>>
+    <%= render @chats %>
+  </ul>
+</div>
+<p>
+<%= form_for [:admin, :course, Chat.new], :remote => true do |f| %>
+  <%= f.text_area :content, :size => "3x3" %>
+  <%= f.submit "Send" %>
+<% end %>
+</p>

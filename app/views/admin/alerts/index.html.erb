@@ -1,4 +1,4 @@
-<h2>Avisos
+<h2 class="list-title">Avisos
 <%= link_to_new(Alert, new_admin_alert_path) if(can? :create, Alert) && @courses.present? %>
 </h2>
 
@@ -23,6 +23,6 @@
   <%= will_paginate @alerts, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
 
 <% else %>
-  <p>Não existe nenhum aviso.</p>
+  <p>Não existe avisos registradas.</p>
 <% end %>
 <hr class="thick">

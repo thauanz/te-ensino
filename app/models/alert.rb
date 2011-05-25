@@ -10,10 +10,6 @@ class Alert < ActiveRecord::Base
   validates_presence_of :title, :expire, :description
   validates_presence_of :course_id
  
-#  with_options :allow_blank => true do |v|
-#    v.validates_format_of :expire, :with => /^([0-9]{2}\/[0-9]{2}\/[0-9]{4})$/, :message => "formato invalido"
-#  end
-
   validate :expire_today
   
   def opened_alert?(user_audit)

@@ -7,7 +7,7 @@ module Admin::AdminHelper
       html << (content_tag :div, :class => "in", &block)
     end
   end
-  
+    
   def link_to_new(model, url, text = "", html_options = {})
     text_reference = text.blank? ? t("new", :model => model.model_name.human) : text
     html_options.reverse_merge!(:class => "button right")

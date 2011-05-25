@@ -101,8 +101,37 @@ $("#user-active.cross").live("mouseenter", function(){
 });
 
 $("a.ui-state-default").live("click", function(){
-  $.get("/app.js?date_at="+$(".datepicker").datepicker("getDate"));
-  loading();
+  if ($("#date-ambient").length > 0){
+    $.get("/app.js?date_at="+$(".datepicker").datepicker("getDate"));
+    loading();
+  }
   return false;
 });
+
+$("#pesquisar-user").live("click", function(){
+
+  if ($("#data_inicio").val() != 0 && $("#data_fim").val() != 0 && $("#user_course_id").val() != 0)
+      $.get("/app/users.js?data_inicio="+$("#data_inicio").val()+"&data_fim="+$("#data_fim").val()+"&course_id="+$("#user_course_id").val());    
+  else
+    if ($("#data_inicio").val() != 0 && $("#data_fim").val() != 0)
+      $.get("/app/users.js?data_inicio="+$("#data_inicio").val()+"&data_fim="+$("#data_fim").val());
+      else
+        if ($("#user_course_id").val() != 0)
+          $.get("/app/users.js?course_id="+$("#user_course_id").val());    
+        else
+          document.location.reload();
+
+  return false;
+});
+
+
+$(function() {
+  if ($("#notice").length > 0) {
+    setTimeout(killMessage, 3999);
+  }
+});
+
+function killMessage () {
+  $("p.flash-message").hide();
+}
 

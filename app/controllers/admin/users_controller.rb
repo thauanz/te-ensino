@@ -6,6 +6,9 @@ class Admin::UsersController < Admin::AdminController
   menu_item :users
   
   def index
+    @users = @users.where("last_sign_in_at > ? AND last_sign_in_at < ?", 
+                          params[:data_inicio].to_datetime, params[:data_fim].to_datetime) if (params[:data_inicio].present? && params[:data_fim].present?)
+    @users = @users.where(" course_id = ?", params[:course_id]) if params[:course_id].present?
     @users = @users.paginate(:page => params[:page], :per_page => 15)
   end
   

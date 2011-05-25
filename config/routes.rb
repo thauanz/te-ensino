@@ -22,6 +22,7 @@ AppEad::Application.routes.draw do
     resources :courses do
       resources :lessons, :except => [:index, :show]
       get :matriculations, :on => :member
+      resource :chats
     end
     resources :lessons, :except => [:new, :destroy] do
       get :copy, :on => :member

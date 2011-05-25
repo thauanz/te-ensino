@@ -6,7 +6,7 @@ div#content-for{
 #body-header {
   padding: 10px auto;
   width: 360px;
-  margin: 0 70px;
+  margin: 0 50px;
   overflow: hidden;
   behavior: url(/javascripts/vendor/PIE.htc);
 }

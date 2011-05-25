@@ -8,6 +8,7 @@ h2 {
   border-bottom: 2px solid #E7E7E7;
   margin-bottom: 20px;
   padding-bottom:15px;
+  padding-left: 30px;
 }
 
 body {
@@ -351,6 +352,51 @@ div#sidebar{
   background-image: url('/images/icons/application_edit.png');
 }
 
+.list-title {
+  background-image: url('/images/icons-title/list.png');
+  background-repeat: no-repeat;
+}
+
+.edit-title {
+  background-image: url('/images/icons-title/edit.png');
+  background-repeat: no-repeat;
+}
+
+.new-title {
+  background-image: url('/images/icons-title/new.png');
+  background-repeat: no-repeat;
+}
+
+.education-title {
+  background-image: url('/images/icons-title/education.png');
+  background-repeat: no-repeat;
+}
+
+.view-title {
+  background-image: url('/images/icons-title/view.png');
+  background-repeat: no-repeat;
+}
+
+.person-title {
+  background-image: url('/images/icons-title/person.png');
+  background-repeat: no-repeat;
+}
+
+.chat-title {
+  background-image: url('/images/icons-title/chat.png');
+  background-repeat: no-repeat;
+}
+
+.group-title {
+  background-image: url('/images/icons/group.png');
+  background-repeat: no-repeat;
+}
+
+.setting-title {
+  background-image: url('/images/icons-title/setting.png');
+  background-repeat: no-repeat;
+}
+
 .view_icon {
   background-image: url('/images/icons/eye.png');
 }
@@ -387,13 +433,6 @@ div#sidebar{
   background-image: url('/images/icons/desactive.png');
 }
 
-.minus {
-  background-image: url('imagens/icons/minus.gif');
-}
-
-.plus {
-  background-image: url('imagens/icons/plus.gif');
-}
 /* form */
 
 label {
@@ -681,6 +720,25 @@ ul.list li.header{
 .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages{
   margin-left: 0;
 }
+
+/* CHAT */
+#chat { 
+  min-height: 150px;
+  max-height: 350px;
+  overflow:auto;  
+}
+
+ul#chat li .created_at {
+  float: right;
+  color: #777;
+  font-size: 11px;
+  padding-left: 4px;
+  padding-top: 2px;
+}
+
+#chat ul { list-style: none; }
+#chat li { padding: 7px; }
+
 
 * html .pagination { height: 1%; }
 *:first-child+html .pagination { overflow: hidden; }

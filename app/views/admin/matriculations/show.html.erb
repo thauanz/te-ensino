@@ -1,4 +1,4 @@
-<h2><%= @matriculation.course.name %></h2>
+<h2 class="view-title"><%= @matriculation.course.name %></h2>
 
 <h3>Professor(s)</h3>
 <%= @matriculation.teachers %>
@@ -7,6 +7,13 @@
   <h3>Tutor</h3>
   <%= @matriculation.tutor %>
 <% end %>
+
+<hr class = "thick" />
+  <h3>Chat
+  <%= link_to "Acessar", admin_course_chats_path(@matriculation.course), :class => "button right" %>
+  </h3>
+  
+<hr class = "thick" />
   <h3>Aulas</h3>
 <% if @lessons.present? %>
   <table class="grid">

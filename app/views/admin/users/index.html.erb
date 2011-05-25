@@ -1,16 +1,35 @@
-<h2>Usuários</h2>
-
-  <% if @users.present? %>
-    <% @users.group_by(&:role).each do |container|
-      help = (user_group = container.last).first
-      title = help.student? ? "Aluno(s)" : help.teacher? ? "Professor(s)" : "Tutor(s)" %>
-      <h3><%= title %></h3>
-        <ul class="list">
-          <%= render :partial => "user", :collection => user_group %>
-        </ul>
-    <% end %>
-    <%= will_paginate @users, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
-  <% else %>
-    <p>Não existe usuários ainda.</p>
-  <% end %>
+<h2 class="group-title">Usuários</h2>
+  <table>
+    <tr>
+      <td width="40%">
+        <div class="field">
+          <%= label_tag :data_inicio %>
+          <%= text_field_tag :data_inicio, nil, :size => 15, :class => "datepicker" %>
+        </div>
+      </td>
+      <td width="40%">
+        <div class="field">
+          <%= label_tag :data_fim %>
+          <%= text_field_tag :data_fim, nil, :size => 15, :class => "datepicker" %>
+        </div>
+      </td>
+      <% if current_user.teacher? || current_user.tutor? %>
+        <td width="20%">
+          <div class="field">
+            <%= label_tag "Curso"  %>
+            <%= select "user", "course_id", 
+                current_user.teacher? ? current_user.courses.collect {|p| [p.name, p.id]} : 
+                current_user.tutors.collect {|p| [p.name, p.id]}, 
+                :include_blank => true 
+            %>
+          </div>
+        </td>
+      <% end %>
+    </tr>
+  </table>
+  <%= link_to "Pesquisar", admin_users_path, :class => "button", :id => "pesquisar-user", :remote => true %>
+<hr class = "thick" />
+  <div id="group-users">
+    <%= render :partial => "users" %>
+  </div>
 <hr class = "thick" />

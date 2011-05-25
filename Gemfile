@@ -14,6 +14,7 @@ gem 'will_paginate', '3.0.pre2'
 #gem 'jquery-rails'
 gem 'paperclip'
 gem "ancestry"
+gem "faye"
 
   group :development, :test do
     gem "rspec", "2.5.0"

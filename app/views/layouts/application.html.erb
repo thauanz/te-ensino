@@ -28,12 +28,7 @@
     <div id="header">
       <header>
         <%= link_to root_path do %>
-          <div id="logo">[te]ensino</div>
-        <% end %>
-        <% if user_signed_in? %>
-          <div class="left">
-            <%= link_to image_tag("door_out.png", :title => "Sair", :class => :middle), destroy_user_session_path %>
-          </div>
+          <div id="logo">[zatta]ensina</div>
         <% end %>
       </header>
       
@@ -42,15 +37,22 @@
           <%= menu do |m| %>
             <%= m.pages "Home", root_path %>
             <%= m.courses "Cursos", courses_path %>
-            <%= m.prices "FAQ", "#" %>
           <% end %>
         </div>
-        <div id="main-nav" class="nav right">
-          <%= menu do |m| %>
-            <%= m.signup "Registrar-se", new_user_registration_path, :class=> "button_sign_up" %>
-            <%= m.login "Login", new_user_session_path, :class=> "button_login" %>
+        
+          <% if user_signed_in? %>
+            <div class="nav right large">
+              Deseja sair <%= current_user.name %>?
+              <strong><%= link_to "Sim", destroy_user_session_path %> , <%= link_to "Não", admin_root_path %></strong>
+            </div>
+          <% else %>
+            <div id="main-nav" class="nav right">
+              <%= menu do |m| %>
+                <%= m.signup "Registrar-se", new_user_registration_path, :class=> "button_sign_up" %>
+                <%= m.login "Autenticação", new_user_session_path, :class=> "button_login" %>
+              <% end %>
+            </div>
           <% end %>
-        </div>
       </div>
     </div>
 
@@ -68,7 +70,6 @@
           <%= menu do |m| %>
             <%= m.pages "HOME", root_path %>
             <%= m.courses "CURSOS", courses_path %>
-            <%= m.prices "FAQ", "#" %>
             <%= m.contact "CONTATO", "#"%>
           <% end %>
         </ul>

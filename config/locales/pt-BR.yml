@@ -285,7 +285,7 @@ pt-BR:
         name: "Nome"
         contact: "Telefone"
         cellfone: "Celular"
-        profile: "Perfil"
+        profile: "Descrição"
         role: "Perfil"
         email: "Email"
         home_page: "Home page"
@@ -302,7 +302,7 @@ pt-BR:
         timer_course: "Horário"
         price: "Preço(R$)"
         workload: "Carga horária"
-        amount: "Quantidade"
+        amount: "Quantidade de alunos"
         tutor_id: "Tutor"
       alert:
         title: "Assunto"

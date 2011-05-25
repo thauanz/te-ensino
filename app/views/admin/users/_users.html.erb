@@ -1,0 +1,13 @@
+<% if @users.present? %>
+  <% @users.group_by(&:role).each do |container|
+    help = (user_group = container.last).first
+    title = help.student? ? "Aluno(s)" : help.teacher? ? "Professor(es)" : "Tutor(es)" %>
+    <h3><%= title %></h3>
+      <ul class="list">
+        <%= render :partial => "user", :collection => user_group %>
+      </ul>
+  <% end %>
+  <%= will_paginate @users, :previous_label => "< #{t(:previous_label)}", :next_label => "#{t(:next_label)} >" %>
+<% else %>
+  <p>Não existe usuários.</p>
+<% end %>

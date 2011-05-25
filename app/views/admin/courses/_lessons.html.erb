@@ -5,6 +5,12 @@
   <%= @course.tutors %>
 <% end %>
 
+<hr class = "thick" />
+  <h3>Chat
+  <%= link_to "Acessar", admin_course_chats_path(@course), :class => "button right" %>
+  </h3>
+    
+<hr class = "thick" />
 <h3>Aulas do curso
 <%= link_to "Nova Aula", new_admin_course_lesson_path(@course), :class => "button right" %>
 </h3>

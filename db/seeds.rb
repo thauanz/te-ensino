@@ -39,13 +39,13 @@ print "#{tutor1.name} criado com sucesso...\n"
   :price        => 399.to_f,
   :workload     => "60",
   :amount       => 60.to_i,
-  :tutor_id     => User.find_by_role("tutor").id,
-  :users        => [User.where(:role => "teacher", :id => (i+1)).first]
+  :tutor_id     => User.where(:role => "tutor").offset(rand(2)).first.id,
+  :users        => [User.where(:role => "teacher").offset(rand(4)).first]
   )
   print "Curso de #{hash_course[i]} criado com sucesso...\n"
 end
 
-15.upto 30 do |i|
+1.upto 90 do |i|
   User.create!(
     :name => "User #{i}", 
     :contact => "(31)9903-0777", 
@@ -56,94 +56,40 @@ end
     :home_page => "http://www.google.com"
   )
  
-  Matriculation.create!(
-    :user => User.last,
-    :course => Course.find(1),
-    :enabled => false
-  )
-  print "Aluno #{User.last.name} matriculado no curso de #{Matriculation.last.course.name}\n"
+  print "Aluno #{i} criado \n"
 end
 
-31.upto 60 do |i|
-  User.create!(
-    :name => "User #{i}", 
-    :contact => "(31)9903-0777", 
-    :email => "user#{i}@gmail.com", 
-    :password => "1234567", 
-    :role => User::ROLES[2],
-    :profile => TextDescription,
-    :home_page => "http://www.google.com"
-  )
- 
+1.upto 90 do |i|
   Matriculation.create!(
-    :user => User.last,
-    :course => Course.find(2),
+    :user => User.where(:role => "student", :id => (i+7)).first,
+    :course => Course.find(rand(3).zero? ? 1 : rand(3)+1),
     :enabled => false
   )
-  print "Aluno #{User.last.name} matriculado no curso de #{Matriculation.last.course.name}\n"
-end
-
-61.upto 80 do |i|
-  User.create!(
-    :name => "User #{i}", 
-    :contact => "(31)9903-0777", 
-    :email => "user#{i}@gmail.com", 
-    :password => "1234567", 
-    :role => User::ROLES[2],
-    :profile => TextDescription,
-    :home_page => "http://www.google.com"
-  )
- 
-  Matriculation.create!(
-    :user => User.last,
-    :course => Course.find(3),
-    :enabled => false
-  )
-  print "Aluno #{User.last.name} matriculado no curso de #{Matriculation.last.course.name}\n"
-end
-
-81.upto 99 do |i|
-  User.create!(
-    :name => "User #{i}", 
-    :contact => "(31)9903-0777", 
-    :email => "user#{i}@gmail.com", 
-    :password => "1234567", 
-    :role => User::ROLES[2],
-    :profile => TextDescription,
-    :home_page => "http://www.google.com"
-  )
- 
-  Matriculation.create!(
-    :user => User.last,
-    :course => Course.find(4),
-    :enabled => false
-  )
-  print "Aluno #{User.last.name} matriculado no curso de #{Matriculation.last.course.name}\n"
+  print "Aluno #{i} matriculado no curso de #{Matriculation.last.course.name}\n"
 end
 
 1.upto 50 do |i|
-    user = User.find(rand(User.where(:role => "teacher").count).zero? ? 2 : rand(User.where(:role => "teacher").count)+2 )
+    course = Course.find(rand(3).zero? ? 1 : rand(3)+1)
   Alert.create!(
     :title => "Aviso #{i}",
     :expire => Date.today + i,
     :description => TextDescription,
-    :user => user,
-    :course => user.courses.last
+    :user => course.users.last,
+    :course => course
   )
   print "Alerta #{i} criado com sucesso...\n"
 end
 
 1.upto 50 do |i|
-  user = User.find(rand(User.where(:role => "teacher").count).zero? ? 2 : rand(User.where(:role => "teacher").count)+2 )
+  course = Course.find(rand(3).zero? ? 1 : rand(3)+1)
   Lesson.create!(
   :theme => "Lição #{i}",
   :date_at => Date.today + i,
   :description => TextDescription,
-  :user => user,
-  :course => user.courses.last,
+  :user => course.users.last,
+  :course => course,
   :enabled => false
   )
-  #Course.find(rand(Course.count).zero? ? 1 : rand(Course.count)+1)
   print "Lição #{i} criado com sucesso...\n"
 end
 

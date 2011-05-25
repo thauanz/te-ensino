@@ -1,0 +1,4 @@
+<% broadcast "/#{params[:course_id]}/chats/new" do %>
+  $("#chat<%= "#{params[:course_id]}" %>").append("<%= escape_javascript render(@chat) %>");
+<% end %>
+$("#new_chat")[0].reset();
