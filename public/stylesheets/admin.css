@@ -397,6 +397,11 @@ div#sidebar{
   background-repeat: no-repeat;
 }
 
+.history-title {
+  background-image: url('/images/icons-title/history.png');
+  background-repeat: no-repeat;
+}
+
 .view_icon {
   background-image: url('/images/icons/eye.png');
 }
@@ -738,7 +743,6 @@ ul#chat li .created_at {
 
 #chat ul { list-style: none; }
 #chat li { padding: 7px; }
-
 
 * html .pagination { height: 1%; }
 *:first-child+html .pagination { overflow: hidden; }

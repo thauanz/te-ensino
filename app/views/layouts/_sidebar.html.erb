@@ -1,22 +1,28 @@
 <div id="actions">
 
-<span class="large title-top">Acesso Rápido</span>
-<ul>
-  <% if can? :create, User %>
-    <li><%= link_to t(".teacher"), new_admin_user_path, :class => "add_icon" %></li>
-  <% end %>
-  <% if can? :create, Asset %>
-    <li><%= link_to t(".asset"), new_admin_asset_path, :class => "add_icon" %></li>
-  <% end %>
-  <% if can? :create, Matriculation %>
-    <li><%= link_to t(".matriculation"), new_admin_matriculation_path, :class => "add_page_icon" %></li>
-  <% end %>
-  <% if can?(:create, Alert) && current_user.courses.present? %>
-    <li><%= link_to t(".alert"), new_admin_alert_path, :class => "add_icon" %></li>
-  <% end %>
-</ul>
+<% if !content_for?(:view_all_chats) %>
+  <span class="large title-top">Acesso Rápido</span>
+  <ul>
+    <% if can? :create, User %>
+      <li><%= link_to t(".teacher"), new_admin_user_path, :class => "add_icon" %></li>
+    <% end %>
+    <% if can? :create, Asset %>
+      <li><%= link_to t(".asset"), new_admin_asset_path, :class => "add_icon" %></li>
+    <% end %>
+    <% if can? :create, Matriculation %>
+      <li><%= link_to t(".matriculation"), new_admin_matriculation_path, :class => "add_page_icon" %></li>
+    <% end %>
+    <% if can?(:create, Alert) && current_user.courses.present? %>
+      <li><%= link_to t(".alert"), new_admin_alert_path, :class => "add_icon" %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= yield :calendar %>
+
+<%= yield :view_all_chats %>
+
+<%= yield :view_users %>
 
 </div>
 

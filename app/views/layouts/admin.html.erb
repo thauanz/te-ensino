@@ -55,14 +55,18 @@
   <div id="wrapper">
   <div id="content-wrapper">
     <div id="content">
-      <%= render :partial => "layouts/menu" %>
-      <div class="in">
-        <%= flash_messages %>
-        <div id="body">
-        <%= yield %>
+      <% if !content_for?(:view_all) %>
+        <%= render :partial => "layouts/menu" %>
+        <div class="in">
+          <%= flash_messages %>
+          <div id="body">
+          <%= yield %>
+          </div>
         </div>
-      </div>
-      <%= sidebar %>
+        <%= sidebar %>
+      <% else %>
+        <%= yield :view_all %>
+      <% end %>
     </div>
   </div>
   </div>

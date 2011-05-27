@@ -110,13 +110,13 @@ $("a.ui-state-default").live("click", function(){
 
 $("#pesquisar-user").live("click", function(){
 
-  if ($("#data_inicio").val() != 0 && $("#data_fim").val() != 0 && $("#user_course_id").val() != 0)
+  if ($("#data_inicio").val() != 0 && $("#data_fim").val() != 0 && ($("#user_course_id").val() != 0 && $("#user_course_id").length > 0))
       $.get("/app/users.js?data_inicio="+$("#data_inicio").val()+"&data_fim="+$("#data_fim").val()+"&course_id="+$("#user_course_id").val());    
   else
     if ($("#data_inicio").val() != 0 && $("#data_fim").val() != 0)
       $.get("/app/users.js?data_inicio="+$("#data_inicio").val()+"&data_fim="+$("#data_fim").val());
       else
-        if ($("#user_course_id").val() != 0)
+        if ($("#user_course_id").val() != 0 && $("#user_course_id").length > 0)
           $.get("/app/users.js?course_id="+$("#user_course_id").val());    
         else
           document.location.reload();

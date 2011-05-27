@@ -13,3 +13,10 @@
   <%= f.submit "Send" %>
 <% end %>
 </p>
+
+<%= content_for :view_all_chats do %>
+  <span class="large title-top">Chat</span>
+  <ul>
+    <li><%= link_to "Histórico do chat", history_admin_course_chats_path, :class => "view_icon", :target => "_blank" %></li>
+  </ul>
+<% end %>

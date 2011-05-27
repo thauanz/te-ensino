@@ -14,7 +14,9 @@ AppEad::Application.routes.draw do
   namespace :admin, :path => "app/" do
     root :to => "home#index"
     resources :token_authentications, :only => [:create, :destroy]
-    resources :users
+    resources :users do
+      get :allusers, :on => :collection
+    end
     resources :forums do
       resources :messages
     end
@@ -22,7 +24,9 @@ AppEad::Application.routes.draw do
     resources :courses do
       resources :lessons, :except => [:index, :show]
       get :matriculations, :on => :member
-      resource :chats
+      resource :chats do
+        get :history, :on => :member
+      end
     end
     resources :lessons, :except => [:new, :destroy] do
       get :copy, :on => :member

@@ -15,13 +15,13 @@ class Ability
     
     if user.role == "admin"
       can :manage, :all
-      cannot :read, User, :role => "admin"
+      cannot [:read, :allusers], User, :role => "admin"
       cannot [:create], Matriculation
       cannot :manage, [Asset, Lesson, Alert]
       
     elsif user.role == "teacher"
       can [:read, :update], Course, :users => {:id => user.id }
-      can :read, User, :matriculations => {:course_id => user.courses}
+      can [:read, :allusers], User, :matriculations => {:course_id => user.courses}
       can :update, User, :role => "student"
       can :matriculations, Course
       can :read, [Alert, Lesson], :course => { :users => {:id => user.id }}
@@ -33,7 +33,7 @@ class Ability
     
     elsif user.role == "tutor"
       can :read, Course, :tutor_id => user.id
-      can :read, User, :matriculations => {:course => { :tutor_id => user.id } }
+      can [:read, :allusers], User, :matriculations => {:course => { :tutor_id => user.id } }
       can :update, User, :role => "student"
       can :matriculations, Course
       can :read, [Alert, Lesson], :course => { :tutor_id => user.id }

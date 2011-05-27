@@ -7,4 +7,8 @@ class Admin::ChatsController < Admin::AdminController
   def create
     @chat = Chat.create!(:content => params[:chat][:content], :course_id => params[:course_id], :user => current_user)
   end
+  
+  def history
+    @chats = Chat.where(:course_id => params[:course_id])
+  end
 end

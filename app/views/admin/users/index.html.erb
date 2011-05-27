@@ -33,3 +33,11 @@
     <%= render :partial => "users" %>
   </div>
 <hr class = "thick" />
+
+<%= content_for :view_users do %>
+  <hr class = "thick" />
+  <span class="large title-top">Usuário</span>
+  <ul>
+    <li><%= link_to "Ver todos Usuários", allusers_admin_users_path, :class => "view_icon", :target => "_blank" %></li>
+  </ul>
+<% end %>

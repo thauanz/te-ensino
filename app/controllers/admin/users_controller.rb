@@ -1,14 +1,14 @@
 # (en)coding: utf-8.
 class Admin::UsersController < Admin::AdminController
 
-  load_and_authorize_resource :except => :show
+  load_and_authorize_resource :except => [:show]
   
   menu_item :users
   
   def index
-    @users = @users.where("last_sign_in_at > ? AND last_sign_in_at < ?", 
-                          params[:data_inicio].to_datetime, params[:data_fim].to_datetime) if (params[:data_inicio].present? && params[:data_fim].present?)
-    @users = @users.where(" course_id = ?", params[:course_id]) if params[:course_id].present?
+    @users = @users.where("last_sign_in_at >= ? AND last_sign_in_at <= ?", 
+                          params[:data_inicio].to_datetime, "#{params[:data_fim]} 23:59:59".to_datetime) if (params[:data_inicio].present? && params[:data_fim].present?)
+    @users = @users.where(" course_id = ?", params[:course_id]) if !params[:course_id].nil?
     @users = @users.paginate(:page => params[:page], :per_page => 15)
   end
   
@@ -26,7 +26,7 @@ class Admin::UsersController < Admin::AdminController
   end
   
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) 
   end
     
   def update
@@ -40,4 +40,9 @@ class Admin::UsersController < Admin::AdminController
     flash[:notice] = I18n.tm("destroyed", "user")
     respond_with @user, :location => admin_users_url
   end
+  
+  def allusers
+  
+  end
+ 
 end
