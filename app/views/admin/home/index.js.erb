@@ -6,4 +6,7 @@
   <% else %>
     $("table#calendar").html("<tr class='header'><td>Não existe aula(s) registrada(s) na data.</td></tr>");
   <% end %>
+  
+  $("#lesson-temp").html("<%= escape_javascript(render :partial => 'lessons_temp') %>");
+  
 <% end %>

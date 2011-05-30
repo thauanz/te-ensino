@@ -9,6 +9,7 @@ class Admin::UsersController < Admin::AdminController
     @users = @users.where("last_sign_in_at >= ? AND last_sign_in_at <= ?", 
                           params[:data_inicio].to_datetime, "#{params[:data_fim]} 23:59:59".to_datetime) if (params[:data_inicio].present? && params[:data_fim].present?)
     @users = @users.where(" course_id = ?", params[:course_id]) if !params[:course_id].nil?
+    @users = @users.where(" users.enabled = ?", params[:user_enabled]) if !params[:user_enabled].nil?
     @users = @users.paginate(:page => params[:page], :per_page => 15)
   end
   

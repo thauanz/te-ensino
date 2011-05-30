@@ -1,20 +1,26 @@
 <h2 class="group-title">Usuários</h2>
   <table>
     <tr>
-      <td width="40%">
+      <td>
         <div class="field">
           <%= label_tag :data_inicio %>
           <%= text_field_tag :data_inicio, nil, :size => 15, :class => "datepicker" %>
         </div>
       </td>
-      <td width="40%">
+      <td>
         <div class="field">
           <%= label_tag :data_fim %>
           <%= text_field_tag :data_fim, nil, :size => 15, :class => "datepicker" %>
         </div>
       </td>
+      <td>
+        <div class="field">
+          <%= label_tag "Status" %>
+          <%= select "user", "enabled", [["Ativo", 1], ["Desativo", 0]], :include_blank => true %>
+        </div>
+      </td>
       <% if current_user.teacher? || current_user.tutor? %>
-        <td width="20%">
+        <td>
           <div class="field">
             <%= label_tag "Curso"  %>
             <%= select "user", "course_id", 

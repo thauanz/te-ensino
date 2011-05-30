@@ -1,6 +1,6 @@
 class Lesson < ActiveRecord::Base
 
-  default_scope order("course_id, date_at")
+  #default_scope order("date_at")
   
   after_find :format_date
   

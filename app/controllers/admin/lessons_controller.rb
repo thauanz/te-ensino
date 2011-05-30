@@ -8,7 +8,7 @@ class Admin::LessonsController < Admin::AdminController
   menu_item :lessons
 
   def index
-    @lessons = @lessons.paginate(:page => params[:page], :per_page => 15)
+    @lessons = @lessons.order("course_id, date_at").paginate(:page => params[:page], :per_page => 15)
   end
 
   def show

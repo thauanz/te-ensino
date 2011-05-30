@@ -15,6 +15,7 @@ gem 'will_paginate', '3.0.pre2'
 gem 'paperclip'
 gem "ancestry"
 gem "faye"
+gem "pdfkit"
 
   group :development, :test do
     gem "rspec", "2.5.0"

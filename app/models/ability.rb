@@ -38,7 +38,7 @@ class Ability
       can :matriculations, Course
       can :read, [Alert, Lesson], :course => { :tutor_id => user.id }
       can [:create], [Alert, Lesson], :user_id => user.id
-      can [:update, :destroy], [Alert, Lesson] do |resource|
+      can [:update], [Alert, Lesson] do |resource|
         resource.course.tutor_id == user.id
       end
       can :manage, Asset, :user_id => user.id
