@@ -5,16 +5,16 @@ gem 'rails', '3.0.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', '0.2.7'
 gem 'devise', '1.1.7'
 gem 'menu_builder', '0.3.1'
 gem 'RedCloth', '4.2.7'
-gem 'cancan'
+gem 'cancan', '1.6.5'
 gem 'will_paginate', '3.0.pre2'
-#gem 'jquery-rails'
 gem 'paperclip'
 gem "ancestry"
 gem "faye"
+#gem "prawn"
 gem "pdfkit"
 
   group :development, :test do

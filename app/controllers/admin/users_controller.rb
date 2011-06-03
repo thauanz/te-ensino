@@ -43,7 +43,20 @@ class Admin::UsersController < Admin::AdminController
   end
   
   def allusers
-  
+    respond_to do |format|
+      format.html
+      format.pdf {
+        #render :text => PDFKit.new(allusers_admin_users_url).to_pdf
+        html = render_to_string :layout => false, :partial => "usersall.html.erb"
+        kit = PDFKit.new("#{html}")
+        kit.stylesheets << "#{Rails.root}/public/stylesheets/scaffold.css"
+        kit.stylesheets << "#{Rails.root}/public/stylesheets/common.css"
+        kit.stylesheets << "#{Rails.root}/public/stylesheets/admin.css"
+        send_data kit.to_pdf, :filename => "labels.pdf", :type => 'application/pdf', :disposition => "inline"
+        #return # to avoid double render call
+      }
+    end
   end
+
  
 end

@@ -744,5 +744,26 @@ ul#chat li .created_at {
 #chat ul { list-style: none; }
 #chat li { padding: 7px; }
 
+@media print {
+  body{
+    background-color: #FFF;
+  }
+
+  #container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  
+  #line_items {
+    page-break-before: always;
+  }
+  
+  #pdf_link {
+    display: none;
+  }
+}
+
 * html .pagination { height: 1%; }
 *:first-child+html .pagination { overflow: hidden; }
