@@ -1,0 +1,28 @@
+<table class="grid">
+  <tr class="header">
+    <th>Nome</th>
+    <th>Email</th>
+    <% if current_user.admin? %>
+      <th>Perfil</th>
+    <% else %>
+      <th>Curso(s)</th>
+    <% end %>
+    <th>Último Acesso</th>
+  </tr>
+  <% @users.each do |user| %>
+    <%= content_tag_for :tr, user, :class => cycle(:odd, :even) do %>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <% if current_user.admin? %>
+        <td><%= t user.role %></td>
+      <% else %>
+        <td><%= user.matriculations.collect {|matriculation| matriculation.course.name }.join(", ") %></td>
+      <% end %>
+      <% if user.last_sign_in_at.present? %>
+        <td><%= l user.last_sign_in_at %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+    <% end %>
+  <% end %>
+</table>
