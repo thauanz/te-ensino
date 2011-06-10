@@ -9,8 +9,7 @@
 
 TextDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eros dolor, lacinia non pharetra nec, pharetra non tortor. Sed vel urna libero, sit amet fringilla dolor. Nullam ut metus non urna consectetur luctus. Phasellus ac elit elit. Maecenas tempus rutrum orci ac varius. Sed vel neque mi, et adipiscing enim. Sed viverra condimentum purus vel congue. Curabitur et gravida turpis. Cras id porttitor arcu. Aenean enim mi, sollicitudin ut euismod in, aliquam adipiscing turpis. Ut interdum felis eget elit vestibulum nec aliquet ipsum iaculis. Vestibulum mi leo, mattis quis luctus non, interdum at urna. Integer mauris lacus, pharetra a pellentesque in, facilisis non augue. Aenean nec mauris ac lorem aliquet sollicitudin. Nulla tempor pulvinar urna, sed congue risus tincidunt et."
 
-admin = User.create!(:name => "Administrador", :contact => "(31)9999-9999", :email => "admin@te-ensino.com", :password => "sistema", :role => User::ROLES[0])
-print "#{admin.name} criado com sucesso...\n"
+User.create!(:name => "Administrador", :contact => "(31)9999-9999", :email => "admin@te-ensino.com", :password => "sistema", :role => User::ROLES[0])
 
 teacher1 = User.create!(:name => "Marcio Assis", :contact => "(33)3333-3333", :email => "assismiranda@gmail.com", :password => "1234567", :role => User::ROLES[1])
 print "#{teacher1.name} criado com sucesso...\n"
@@ -45,7 +44,7 @@ print "#{tutor1.name} criado com sucesso...\n"
   print "Curso de #{hash_course[i]} criado com sucesso...\n"
 end
 
-1.upto 90 do |i|
+8.upto 60 do |i|
   User.create!(
     :name => "User #{i}", 
     :contact => "(31)9903-0777", 
@@ -59,9 +58,9 @@ end
   print "Aluno #{i} criado \n"
 end
 
-1.upto 90 do |i|
+8.upto 60 do |i|
   Matriculation.create!(
-    :user => User.where(:role => "student", :id => (i+7)).first,
+    :user => User.where(:role => "student", :id => i).first,
     :course => Course.find(rand(3).zero? ? 1 : rand(3)+1),
     :enabled => false
   )

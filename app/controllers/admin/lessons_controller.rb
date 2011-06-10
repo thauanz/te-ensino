@@ -47,6 +47,7 @@ class Admin::LessonsController < Admin::AdminController
   def copy
     @lesson = Lesson.find(params[:id]).clone
     @lesson.theme = "Copia de #{@lesson.theme}"
+    @lesson.enabled = false
     flash[:notice] = "Aula copiada com sucesso." if @lesson.save
     redirect_to admin_lessons_url
   end

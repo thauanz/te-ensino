@@ -28,6 +28,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :role
     # add_index :users, :confirmation_token,   :unique => true
     # add_index :users, :unlock_token,         :unique => true
+
+    User.create!(:name => "Administrador", :contact => "(31)9999-9999", :email => "admin@te-ensino.com", :password => "sistema", :role => User::ROLES[0])
   end
 
   def self.down

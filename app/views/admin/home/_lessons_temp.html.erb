@@ -1,6 +1,8 @@
 <% if @lessons_temp.present? %>
-    <span class="large title-top">Datas das próximas Aulas</span>
-  <% @lessons_temp.group_by(&:date_at).each do |key, temp| %>
-    <%= l key %><br/>
-  <% end %>
+  <i><p>
+    <span class="medium">Próximas Aulas</span><br/>
+    <% @lessons_temp.group_by(&:date_at).each do |key, temp| %>
+      <%= l key %><br/>
+    <% end %>
+  </p></i>
 <% end %>

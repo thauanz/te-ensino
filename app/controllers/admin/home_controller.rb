@@ -34,14 +34,14 @@ class Admin::HomeController < Admin::AdminController
                     ).all if can? :read, Lesson
                     
      @lessons_temp = current_user.teacher? ? 
-                      current_user.lessons.where("date_at > ?", date_params).order("date_at").limit(10) : 
+                      current_user.lessons.where("date_at > ?", date_params).order("date_at").limit(5) : 
                       current_user.tutor? ?
-                      Lesson.joins(:course).where("courses.tutor_id = ? AND date_at > ?", current_user.id, date_params).order("date_at").limit(10) :
+                      Lesson.joins(:course).where("courses.tutor_id = ? AND date_at > ?", current_user.id, date_params).order("date_at").limit(5) :
                       Lesson.joins(
                         :course => :matriculations).where( 
                           "date_at > ? AND lessons.enabled = true AND matriculations.user_id = ? AND matriculations.enabled = true", 
                           date_params, current_user.id
-                        ).order("date_at").limit(10) if can? :read, Lesson
+                        ).order("date_at").limit(5) if can? :read, Lesson
     end
   end
    

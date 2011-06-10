@@ -30,7 +30,7 @@
   <hr class = "thick" />
 <% end %>
 
-<% if !current_user.admin? %>
+<% if !current_user.admin? && can?(:read, Lesson) %>
   <table class="grid">
     <th class="titulo" colspan="3"><h3><%= image_tag("/images/calendar.png", :size=> "18x18")%> 
     Calendário de Aulas
@@ -61,12 +61,11 @@
 
 <%= content_for :calendar do %>
   <% if can? :read, Lesson %>
-    <hr class="thick">
+    <hr class = "thick" />
     <span class="large title-top">Calendário de Aulas</span>
+    <div id="lesson-temp" >
+      <%= render :partial => "lessons_temp" %>
+    </div>
     <div id="date-ambient" class="datepicker right" ></div>
   <% end %>
-  <hr class="thick">
-  <div id="lesson-temp" >
-   <%= render :partial => "lessons_temp" %>
-  </div>
 <% end %>
