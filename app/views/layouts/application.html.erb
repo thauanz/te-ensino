@@ -23,15 +23,15 @@
     </p>
   </div>
   <![endif]-->
-  
+
   <div id="wrapper">
     <div id="header">
       <header>
         <%= link_to root_path do %>
-          <div id="logo">[zatta]ensina</div>
+          <div id="logo">[te]ensino</div>
         <% end %>
       </header>
-      
+
       <div id="menu">
         <div id="main-nav" class="nav left">
           <%= menu do |m| %>
@@ -39,7 +39,7 @@
             <%= m.courses "Cursos", courses_path %>
           <% end %>
         </div>
-        
+
           <% if user_signed_in? %>
             <div class="nav right large">
               Deseja sair <%= current_user.name %>?
@@ -63,7 +63,7 @@
       </div>
       <%= render :partial => "layouts/sidebar_off" %>
     </div>
-    
+
     <div id="footer">
       <div id="footer-nav">
         <ul>
@@ -76,9 +76,10 @@
       </div>
     </div>
   </div>
-  
-  
+
+
   <%= yield :bottom %>
   <%= analytics "UA-XXXXX" %>
 </body>
 </html>
+

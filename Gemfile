@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,7 +20,7 @@ gem "pdfkit"
   group :development, :test do
     gem "rspec", "2.5.0"
     gem "rspec-rails", "2.5.0"
-    gem 'steak', '1.1.0' 
+    gem 'steak', '1.1.0'
     gem "autotest"
     gem "webrat"
   end
@@ -47,3 +47,4 @@ gem "pdfkit"
 # group :development, :test do
 #   gem 'webrat'
 # end
+
