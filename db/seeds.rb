@@ -11,22 +11,22 @@ TextDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prae
 
 User.create!(:name => "Administrador", :contact => "(31)9999-9999", :email => "admin@te-ensino.com", :password => "sistema", :role => User::ROLES[0])
 
-teacher1 = User.create!(:name => "Marcio Assis", :contact => "(33)3333-3333", :email => "assismiranda@gmail.com", :password => "1234567", :role => User::ROLES[1])
+teacher1 = User.create!(:name => "Marcio", :contact => "(33)3333-3333", :email => "marcio@sample.com", :password => "1234567", :role => User::ROLES[1])
 print "#{teacher1.name} criado com sucesso...\n"
 
-teacher2 = User.create(:name => "Reinaldo", :contact => "(31)8787-9898", :email => "reinaldo.opus@gmail.com", :password => "1234567", :role => User::ROLES[1])
+teacher2 = User.create(:name => "Reinaldo", :contact => "(31)8787-9898", :email => "reinaldo@sample.com", :password => "1234567", :role => User::ROLES[1])
 print "#{teacher2.name} criado com sucesso...\n"
 
-teacher = User.create!(:name => "Thauan", :contact => "(31)9903-0777", :email => "thauanz@gmail.com", :password => "thauan", :role => User::ROLES[1])
+teacher = User.create!(:name => "Thauan", :contact => "(31)8888-7777", :email => "thauanz@gmail.com", :password => "1234567", :role => User::ROLES[1])
 print "#{teacher.name} criado com sucesso...\n"
 
-teacher = User.create!(:name => "Maria Tereza", :contact => "(31)9903-0777", :email => "tete@gmail.com", :password => "thauan", :role => User::ROLES[1])
+teacher = User.create!(:name => "Maria Tereza", :contact => "(31)9903-0777", :email => "tete@sample.com", :password => "1234567", :role => User::ROLES[1])
 print "#{teacher.name} criado com sucesso...\n"
 
-tutor = User.create(:name => "Jessica", :contact => "(31)8787-9898", :email => "jessica@gmail.com", :password => "thauan", :role => User::ROLES[3])
+tutor = User.create(:name => "Jessica", :contact => "(31)8787-9898", :email => "jessica@sample.com", :password => "1234567", :role => User::ROLES[3])
 print "#{tutor.name} criado com sucesso...\n"
 
-tutor1 = User.create(:name => "Luiza", :contact => "(31)8787-9898", :email => "luiza@gmail.com", :password => "thauan", :role => User::ROLES[3])
+tutor1 = User.create(:name => "Luiza", :contact => "(31)8787-9898", :email => "luiza@sample.com", :password => "1234567", :role => User::ROLES[3])
 print "#{tutor1.name} criado com sucesso...\n"
 
 1.upto 4 do |i|
@@ -46,15 +46,15 @@ end
 
 8.upto 60 do |i|
   User.create!(
-    :name => "User #{i}", 
-    :contact => "(31)9903-0777", 
-    :email => "user#{i}@gmail.com", 
-    :password => "1234567", 
+    :name => "User #{i}",
+    :contact => "(31)9903-0777",
+    :email => "user#{i}@gmail.com",
+    :password => "1234567",
     :role => User::ROLES[2],
     :profile => TextDescription,
     :home_page => "http://www.google.com"
   )
- 
+
   print "Aluno #{i} criado \n"
 end
 

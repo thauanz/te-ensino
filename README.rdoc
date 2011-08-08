@@ -1,0 +1,37 @@
+== Welcome
+
+Project completion of course.
+
+== Dependencias
+
+As dependencias são as seguintes.
+
+* {Ruby 1.9.2}[http://www.ruby-lang.org/en/news/2011/07/15/ruby-1-9-2-p290-is-released/]
+* {Rails 3.0.9}[https://github.com/rails/rails.git]
+* {Bundler}[http://gembundler.com/]
+
+
+== Instalação
+
+Para instalar basta seguir os seguintes passos.
+
+1. Clonar a app em repositorio local.
+
+    git clone git@github.com:thauanz/te-ensino.git
+
+2. Instalar o Ruby on Rails se não estiver instalado.
+
+    gem install rails
+
+3. Executar bundle para instalar todas as dependencias requeridas.
+
+    bundle install
+
+4. Executar a migração para o BD
+
+    rake db:migrate
+
+5. Se quiser poder criar contas de usuários e algumas informações adicionais.
+
+    rake db:seed
+
