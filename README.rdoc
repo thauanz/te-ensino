@@ -1,6 +1,8 @@
-== Welcome
+== te-ensino
 
-Project completion of course.
+Projeto de conclusão de curso.
+
+O objetivo deste projeto é o ensino a distância de uma forma eficaz para todos os públicos.
 
 == Dependencias
 
