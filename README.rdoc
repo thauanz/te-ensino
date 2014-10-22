@@ -1,3 +1,4 @@
+{<img alt='Stories in Ready' src='https://badge.waffle.io/thauanz/te-ensino.png?label=ready&title=Ready' />}[https://waffle.io/thauanz/te-ensino]
 == te-ensino
 
 Projeto de conclusão de curso.
